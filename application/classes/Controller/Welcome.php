@@ -8,7 +8,5 @@ class Controller_Welcome extends Controller_Template { /* Controller_Template é
 	public function action_index() {
         $this->template->content= 'Descrição do Sistema';
 	}
-    
-    
-
+    // Duas linhas removidas!
 } // End Welcome

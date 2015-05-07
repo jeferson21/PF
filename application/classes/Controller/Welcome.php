@@ -9,8 +9,6 @@ class Controller_Welcome extends Controller_Template { /* Controller_Template é
         $this->template->content= 'Descrição do Sistema';
 	}
     
-    public function action_perspectiva() {
-        $this->template->content= View::Factory('');    
-    }
+    
 
 } // End Welcome

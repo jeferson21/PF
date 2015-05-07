@@ -1,0 +1,56 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2015-04-01 17:32:41 --- CRITICAL: ErrorException [ 4096 ]: Argument 3 passed to Kohana_Form::label() must be of the type array, string given, called in C:\xampp\htdocs\PF\application\views\templatePerspectivas.php on line 6 and defined ~ SYSPATH\classes\Kohana\Form.php [ 420 ] in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:420
+2015-04-01 17:32:41 --- DEBUG: #0 C:\xampp\htdocs\PF\system\classes\Kohana\Form.php(420): Kohana_Core::error_handler(4096, 'Argument 3 pass...', 'C:\xampp\htdocs...', 420, Array)
+#1 C:\xampp\htdocs\PF\application\views\templatePerspectivas.php(6): Kohana_Form::label('SITUACAO_PERSP', 'SIM', 'N??O')
+#2 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(228): Kohana_View->render()
+#5 C:\xampp\htdocs\PF\application\views\templateWelcome.php(30): Kohana_View->__toString()
+#6 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#8 C:\xampp\htdocs\PF\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#9 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#10 [internal function]: Kohana_Controller->execute()
+#11 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Perspectivas))
+#12 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#14 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#15 {main} in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:420
+2015-04-01 17:36:52 --- CRITICAL: ErrorException [ 4096 ]: Argument 2 passed to Kohana_Form::select() must be of the type array, string given, called in C:\xampp\htdocs\PF\application\views\templatePerspectivas.php on line 6 and defined ~ SYSPATH\classes\Kohana\Form.php [ 252 ] in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:252
+2015-04-01 17:36:52 --- DEBUG: #0 C:\xampp\htdocs\PF\system\classes\Kohana\Form.php(252): Kohana_Core::error_handler(4096, 'Argument 2 pass...', 'C:\xampp\htdocs...', 252, Array)
+#1 C:\xampp\htdocs\PF\application\views\templatePerspectivas.php(6): Kohana_Form::select('SITUACAO_PERSP', 'SIM')
+#2 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(228): Kohana_View->render()
+#5 C:\xampp\htdocs\PF\application\views\templateWelcome.php(30): Kohana_View->__toString()
+#6 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#8 C:\xampp\htdocs\PF\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#9 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#10 [internal function]: Kohana_Controller->execute()
+#11 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Perspectivas))
+#12 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#14 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#15 {main} in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:252
+2015-04-01 17:37:16 --- CRITICAL: ErrorException [ 2 ]: Missing argument 1 for Kohana_Form::select(), called in C:\xampp\htdocs\PF\application\views\templatePerspectivas.php on line 6 and defined ~ SYSPATH\classes\Kohana\Form.php [ 252 ] in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:252
+2015-04-01 17:37:16 --- DEBUG: #0 C:\xampp\htdocs\PF\system\classes\Kohana\Form.php(252): Kohana_Core::error_handler(2, 'Missing argumen...', 'C:\xampp\htdocs...', 252, Array)
+#1 C:\xampp\htdocs\PF\application\views\templatePerspectivas.php(6): Kohana_Form::select()
+#2 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(228): Kohana_View->render()
+#5 C:\xampp\htdocs\PF\application\views\templateWelcome.php(30): Kohana_View->__toString()
+#6 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#8 C:\xampp\htdocs\PF\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#9 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#10 [internal function]: Kohana_Controller->execute()
+#11 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Perspectivas))
+#12 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#14 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#15 {main} in C:\xampp\htdocs\PF\system\classes\Kohana\Form.php:252
+2015-04-01 18:09:52 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected ' ~ APPPATH\views\templateGrupos.php [ 9 ] in file:line
+2015-04-01 18:09:52 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

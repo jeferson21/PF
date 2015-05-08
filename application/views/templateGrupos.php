@@ -10,11 +10,11 @@
 	      <?=form::submit('btn_submit', 'Salvar') ?>
 	   <?=form::close()?>
 
-
             <table>
                   <tr>
                       <td>    Categoria     </td>
-                      <td>    Id Perspectiva   </td>
+                    <td>    Id Perspectiva   </td> <!-- Aqui eu quero mostrar o código da perspectiva
+                                                     no lugar do código   -->
                       <td>    Situação     </td>
                       <td colspan="2"> Opções </td>
                   </tr>

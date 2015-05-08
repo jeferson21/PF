@@ -13,7 +13,7 @@
             <table>
                   <tr>
                       <td>    Categoria     </td>
-                    <td>    Id Perspectiva   </td> <!-- Aqui eu quero mostrar o código da perspectiva
+                    <td>    Id Perspectiva   </td> <!-- Aqui eu quero mostrar o nome da perspectiva
                                                      no lugar do código   -->
                       <td>    Situação     </td>
                       <td colspan="2"> Opções </td>

@@ -137,12 +137,12 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'Welcome',
+		'controller' => 'Users',
 		'action'     => 'index',
 	));
 
 /**
-*  Route para arquivos de media
+*  Route for media files
 */
 	Route::set('media', 'media(/<file>)', array('file' => '.+'))
 	->defaults(array(
@@ -153,9 +153,19 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 
 
 /**
+*  Route for home screen
+*/
+Route::set('home', '(<controller>(/<action>(/<id>)))')
+	->defaults(array(
+		'controller' => 'Perspectivas',
+		'action'     => 'index',
+	));
+
+
+/**
 * Cookie Salt
 */
-Cookie::$salt = "qpasnekal12iqif39n";
+Cookie::$salt = "qpasnekal12iqif3as9n";
 
 
 /**

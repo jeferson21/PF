@@ -70,25 +70,28 @@ class Kohana_Auth_ORM extends Auth {
 	 * @return  boolean
 	 */
 	protected function _login($user, $password, $remember)
-	{
+	{		
 		if ( ! is_object($user))
 		{
 			$username = $user;
 
 			// Load the user
 			$user = ORM::factory('User');
-			$user->where($user->unique_key($username), '=', $username)->find();
+			
+			$user->where($user->unique_key($username), '=', $username)->find();			
+			#$user->where($user->username, '=', $username)->find();
+			
 		}
 
 		if (is_string($password))
 		{
 			// Create a hashed password
-			$password = $this->hash($password);
+			#$password = $this->hash($password);			
 		}
 
 		// If the passwords match, perform a login
 		if ($user->has('roles', ORM::factory('Role', array('name' => 'login'))) AND $user->password === $password)
-		{
+		{			
 			if ($remember === TRUE)
 			{
 				// Token data

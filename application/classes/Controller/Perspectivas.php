@@ -24,7 +24,7 @@ class Controller_Perspectivas extends Controller_Template { /* Controller_Templa
                 $this->redirect('Perspectivas');
             }
         } 
-        catch(ORM_Validation_Exception $e){
+        catch(ORM_Validation_Exception $e) {
             $errors = $e->errors('forms');
         }
 

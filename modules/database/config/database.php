@@ -19,7 +19,7 @@ return array
 			 * Ports and sockets may be appended to the hostname.
 			 */
 			'hostname'   => 'localhost',
-			'database'   => 'MapaEstrategico',
+			'database'   => 'mapaestrategico',
 			'username'   => 'root',
 			'password'   => 'root',
 			'persistent' => FALSE,

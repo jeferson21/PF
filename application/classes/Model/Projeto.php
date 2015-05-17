@@ -24,12 +24,19 @@ class Model_Projeto extends ORM {
 
 			# Falta fazer a validação e complemento dos campos na edição para DATA #
 
+			'DATA_INI'=> array ( 
+				array('not_empty'),
+				array('min_length', array(':value', 4)),
+				array(array($this, 'is_date'), array(':validation',':field'))
+			),	
+
+
 			'GERENTE'=> array ( 
 				array('not_empty'),
 				array('min_length', array(':value', 4)),
 				array('max_length', array(':value', 50)) 
 			),
 		);
-   }
+   }   
 
 }

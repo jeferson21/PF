@@ -13,8 +13,7 @@
             <table>
                   <tr>
                       <td>    Categoria     </td>
-                    <td>    Id Perspectiva   </td> <!-- Aqui eu quero mostrar o nome da perspectiva
-                                                     no lugar do código   -->
+                      <td>    Perspectiva   </td> 
                       <td>    Situação     </td>
                       <td colspan="2"> Opções </td>
                   </tr>
@@ -23,7 +22,7 @@
                  foreach($grupos as $grupo) { ?>  
                   <tr>
                      <td> <?=$grupo->CATEGORIA?>  </td>
-                     <td> <?=$grupo->PERSPECTIVAS_idPERSPECTIVA;?> </td>
+                     <td> <?=$grupo->perspectiva->DESCRICAO_PERSP;?> </td>
                      <td> <?php 
                             if($grupo->SITUACAO_GR==0) { echo "Ativo"; } 
                             else { echo "Inativo";  }

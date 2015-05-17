@@ -12,7 +12,7 @@
 		  <table>
                   <tr>
                       <td>    Decrição     </td>
-                      <td>    Id Grupo   </td>
+                      <td>    Grupo   </td>
                       <td>    Situação     </td>
                       <td colspan="2"> Opções </td>
                   </tr>
@@ -21,7 +21,7 @@
                  foreach($objetivos as $objetivo) { ?>  
                   <tr>
                      <td> <?=$objetivo->DESCRICAO_OBJ?>  </td>
-                     <td> <?=$objetivo->GRUPOS_idGRUPO?> </td>
+                     <td> <?=$objetivo->grupo->CATEGORIA?> </td>
                       <td> <?php 
                             if($objetivo->SITUACAO_OBJ==0) { echo "Ativo"; } 
                             else { echo "Inativo";  }

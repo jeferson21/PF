@@ -10,7 +10,8 @@ class Controller_Grupos extends Controller_Template {
     
         $grupos=ORM::Factory('Grupo')->find_all(); //Find encontra um elemento, find_all(); vários. 
         if(!isset($grupos[0])) 
-          $grupos=array();
+          $grupos=array();          
+          
           $this->template->content= View::Factory('templateGrupos')
           ->bind('grupos', $grupos)
           ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA);

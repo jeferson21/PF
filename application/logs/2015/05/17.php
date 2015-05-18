@@ -132,3 +132,99 @@
 #13 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #14 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
 #15 {main} in C:\xampp\htdocs\PF\modules\orm\classes\Kohana\ORM.php:603
+2015-05-17 11:13:21 --- CRITICAL: Kohana_Exception [ 0 ]: The requested route does not exist: logout ~ SYSPATH\classes\Kohana\Route.php [ 109 ] in C:\xampp\htdocs\PF\application\views\templateWelcome.php:38
+2015-05-17 11:13:21 --- DEBUG: #0 C:\xampp\htdocs\PF\application\views\templateWelcome.php(38): Kohana_Route::get('logout')
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\PF\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Perspectivas))
+#7 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#9 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#10 {main} in C:\xampp\htdocs\PF\application\views\templateWelcome.php:38
+2015-05-17 11:14:29 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 49 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:49
+2015-05-17 11:14:29 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(49): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 49, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_logout()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:49
+2015-05-17 11:17:35 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 49 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:49
+2015-05-17 11:17:35 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(49): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 49, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_logout()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:49
+2015-05-17 11:23:17 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 50 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 11:23:17 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(50): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_logout()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 14:16:52 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 50 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 14:16:52 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(50): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_logout()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 14:17:08 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$logged_in ~ APPPATH\classes\Controller\Users.php [ 50 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 14:17:08 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(50): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_logout()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:50
+2015-05-17 17:18:49 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '}' ~ APPPATH\classes\Controller\Users.php [ 74 ] in file:line
+2015-05-17 17:18:49 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-05-17 17:19:12 --- CRITICAL: ErrorException [ 1 ]: Class 'Flash' not found ~ APPPATH\classes\Controller\Users.php [ 52 ] in file:line
+2015-05-17 17:19:12 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-05-17 17:19:57 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 15 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:15
+2015-05-17 17:19:57 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(15): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 15, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_login()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:15
+2015-05-17 17:23:22 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 15 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:15
+2015-05-17 17:23:22 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(15): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 15, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_login()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:15
+2015-05-17 17:28:36 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method Controller_Users::is_logged() ~ APPPATH\classes\Controller\Users.php [ 14 ] in file:line
+2015-05-17 17:28:36 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-05-17 17:28:55 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Users::$is_logged ~ APPPATH\classes\Controller\Users.php [ 16 ] in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:16
+2015-05-17 17:28:55 --- DEBUG: #0 C:\xampp\htdocs\PF\application\classes\Controller\Users.php(16): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 16, Array)
+#1 C:\xampp\htdocs\PF\system\classes\Kohana\Controller.php(84): Controller_Users->action_login()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#4 C:\xampp\htdocs\PF\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\PF\application\classes\Controller\Users.php:16
+2015-05-17 17:34:15 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'public' (T_PUBLIC) ~ APPPATH\classes\Controller\Users.php [ 49 ] in file:line
+2015-05-17 17:34:15 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

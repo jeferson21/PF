@@ -161,6 +161,12 @@ Route::set('home', '(<controller>(/<action>(/<id>)))')
 		'action'     => 'index',
 	));
 
+Route::set('logout', '(<controller>(/<action>(/<id>)))')
+	->defaults(array(
+		'controller' => 'Users',
+		'action'     => 'index',
+	));
+
 
 /**
 * Cookie Salt

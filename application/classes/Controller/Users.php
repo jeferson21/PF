@@ -11,51 +11,53 @@ class Controller_Users extends Controller_Template { /* Controller_Template é u
 	}
 	
 	public function action_login() {			
-		
-		if($this->is_logged){        		                      
-                $this->redirect(Route::get('home')->uri(
-							array(
-								'controller' => 'perspectivas',
-								'action' => 'index',
+	       		 
+		if (Auth::instance()->logged_in()) 	{   // User is logged in, continue on                 
+		          $this->redirect(Route::get('home')->uri(
+				 		array(
+							 'controller' => 'perspectivas',
+							 'action' => 'index',
 							)
-				));
-                return false;            
-        }
+						));
+		                return false;            
+		}
 
 		$post = $this->request->post();
+		
 		if(HTTP_Request::POST == $this->request->method()){
 
 			$success=Auth::instance()->login($post['username'], $post['password']);
 
-			if($success) {
-				#var_dump(Route::get('home')->uri());
-						$this->redirect(Route::get('home')->uri(
-							array(
-								'controller' => 'perspectivas',
-								'action' => 'index',
-							)
-						));
+				if($success) {
+					#var_dump(Route::get('home')->uri());
+							$this->redirect(Route::get('home')->uri(
+								array(
+									'controller' => 'perspectivas',
+									'action' => 'index',
+								)
+							));
 				} 
-					  	else {
+		} 	else {
 				echo "O login falhou :/ ";
 		  	}
-		}
-	} 
-
-
-		//FAZER LOGOUT ...
-	  public function action_logout(){        
-        $success=true;
-        if($this->is_logged){
-            $success = Auth::instance()->logout(TRUE);                       
-        }
-        if($success){
-            $this->redirect(Route::logout());
-            return false;
-        }
-        // TODO  tratar quando o logout não é realizado com sucesso, redirecionar logout para a mesma página do usuário
-    }
+	}
 	
+	public function action_logout(){              
+       
+        if(Auth::instance()->logged_in()){
+              
+              $this->redirect(Route::get('logout')->uri(
+							array(
+								'controller' => 'users',
+								'action' => 'index',
+							)
+				));
+            return false;
+        } else {
+        	echo "Logout failed";
+        }
+    } 
+
 } // End Welcome
 
 

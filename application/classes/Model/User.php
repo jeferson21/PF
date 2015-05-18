@@ -2,34 +2,23 @@
 
 	class Model_User extends ORM {
 
-	/**
-	 * A user has many tokens and roles
-	 *
-	 * @var array Relationhips
-	 */
-
+	
 	protected $_has_many = array(
 	    'user_tokens' => array('model' => 'user_token'),
 	    'roles'       => array('model' => 'role', 'through' => 'roles_users'),
 	);
 
-	/**
-	 * Rules for the user model. Because the password is _always_ a hash
-	 * when it's set,you need to run an additional not_empty rule in your controller
-	 * to make sure you didn't hash an empty string. The password rules
-	 * should be enforced outside the model or with a model helper method.
-	 *
-	 * @return array Rules
-	 */
+	
 	public function rules()
 	{
 	    return array(
 	        'username' => array(
 	            array('not_empty'),
 	            array('max_length', array(':value', 32)),
-	            array(array($this, 'unique'), array('username', ':value')),
-	            array('regex', array(':value', '/^[a-z][a-z0-9]+$/i')),
+	           # array(array($this, 'unique'), array('username', ':value')),
+	           # array('regex', array(':value', '/^[a-z][a-z0-9]+$/i')),
 	        ),
+
 	        'email' => array(
 	            array('not_empty'),
 	            array('email'),
@@ -44,6 +33,7 @@
 	 *
 	 * @return array Filters
 	 */
+	
 	public function filters()
 	{
 	    return array(

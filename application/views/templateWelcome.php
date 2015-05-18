@@ -33,6 +33,15 @@
                           <li><?=html::anchor('Itens/index','Montar Mapa')?></li>
                         </ul>
                     </li>
+                     
+                     <?php 
+                          $logout = Route::get('logout')->uri(
+                            array(
+                              'controller' => 'Users',
+                              'action' => 'logout')
+                          );
+                      ?>
+                          <?= HTML::anchor($logout, 'Logout'); ?>
                </ul>
       
            <div class="container"> 

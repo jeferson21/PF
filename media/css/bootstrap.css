@@ -1426,7 +1426,7 @@ pre code {
   
   /* Editado por mim */
       position: relative;
-      top: 10px;
+      top: -15px;
       border: 1px solid #ddd;      
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
@@ -6233,32 +6233,40 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
+
 /* Meus arquivos CSS, acima só os pre-definidos do bootstrap */
 
-#corpo {
-   border: 1px black	 solid;
+.logout {
+   border: 1px gray solid;
    position: relative;
-   top: 30px;
-   height:460px;
-   width:800px;
-   margin-left: 50px;
+   top: -35px;
+   padding-top: 1px;
+   height:24px;
+   width:60px;
+   margin-left: 945px;
    text-align: center;
-   margin-top: 10px; "
-   font-size:30px;
-   text-decoration: none;
+   font-size:15px;
+   border-radius: 3px;
 }	
 
-#titulo {
-    border: 1px black  solid;
-   position: absolute;
-   top: 30px;
-   height:50px;
-   width:100px;
-   margin-left: 5px;
-   text-align: center;
-   margin-top: 5px; "
-   font-size:15px;
-   text-decoration: none;
-   color: gray;
+.container-form {  
+   position: relative;
+   top: -22px;
+   height:30px;
+   width:600px;
+   margin-left: 450px; 
+   font-size:12px;
+ }
 
+.container-top {
+   background-color: #B0C4DE;
+   position: absolute;
+   top: 0px;
+   height:50px;
+   width:100%;
+   margin-left: 0px; 
+   font-size:18px;
+   font-family: Verdana;
+   padding-top: 10px;
+   padding-left: 10px; 
 }

@@ -16,6 +16,10 @@ class Controller_Mapas extends Controller_Template {
             ->set('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO);
     }
 
+    public function action_exibir() {
+        $this->template->content = 'Os mapas serão exibidos aqui de acordo com ano';
+    }
+
 
     public function action_salvar() {
         $OBJETIVOS_idOBJETIVO = ORM::Factory('Objetivo')->find_all()->as_array('idOBJETIVO' ,'DESCRICAO_OBJ');
@@ -28,8 +32,7 @@ class Controller_Mapas extends Controller_Template {
                 $mapa -> save();
                 $this->redirect('Mapas');
             }
-        } 
-        catch(ORM_Validation_Exception $e) {
+        } catch(ORM_Validation_Exception $e) {
             $errors = $e->errors('forms');
         }
          $this->template->content= View::Factory('templateMapas')

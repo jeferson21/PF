@@ -12,10 +12,10 @@
 
             <table>
                   <tr>
-                      <td>    Categoria     </td>
-                      <td>    Perspectiva   </td> 
-                      <td>    Situação     </td>
-                      <td colspan="2"> Opções </td>
+                      <td><b>    Categoria  </b>   </td>
+                      <td><b>    Perspectiva </b>  </td> 
+                      <td><b>    Situação    </b> </td>
+                      <td colspan="2"><b> Opções</b></td>
                   </tr>
              
               <?php 

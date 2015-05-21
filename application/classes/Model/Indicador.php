@@ -18,4 +18,20 @@ class Model_Indicador extends ORM {
 		)
   );
 
+  public function rules(){
+    return array(
+         'DESCRICAO_IND' => array ( 
+            array('not_empty'),
+            array('min_length', array(':value', 5)),
+            array('max_length', array(':value', 100)) 
+         ),
+
+         'CONFIG_IND' => array ( 
+            array('not_empty')
+         )
+     );
+  }
+
+  
+
 }

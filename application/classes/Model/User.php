@@ -19,7 +19,7 @@
 	           # array('regex', array(':value', '/^[a-z][a-z0-9]+$/i')),
 	        ),
 
-	        'email' => array(
+	        'password' => array(
 	            array('not_empty'),
 	            array('email'),
 	            array(array($this, 'unique'), array('email', ':value')),

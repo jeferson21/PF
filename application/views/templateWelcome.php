@@ -29,20 +29,24 @@
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><?=html::anchor('Mapas/index','Configurações Básicas')?></li>
-                          <li><?=html::anchor('Itens/index','Montar Mapa')?></li>
+                          <li><?=html::anchor('Mapas/index','Criar Mapa')?></li>
+                          <li><?=html::anchor('Itens/index','Configurar Mapa')?></li>
+                          <li><?=html::anchor('Mapas/exibir','Exibir Mapas')?></li>
                         </ul>
                     </li>
                      
-                     <?php 
-                          $logout = Route::get('logout')->uri(
-                            array(
-                              'controller' => 'Users',
-                              'action' => 'logout')
-                          );
-                      ?>
-                          <?= HTML::anchor($logout, 'Logout'); ?>
                </ul>
+                  
+               <div class="logout">
+                   <?php 
+                      $logout = Route::get('logout')->uri(
+                          array(
+                             'controller' => 'Users',
+                             'action' => 'logout')
+                          );
+                    ?>
+                      <?=HTML::anchor($logout, 'Logout'); ?>
+                </div>
       
            <div class="container"> 
               <div class="row">

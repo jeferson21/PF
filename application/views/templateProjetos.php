@@ -27,13 +27,13 @@
 
     <table>
                   <tr>
-                      <td>    Nome     </td>
-                      <td>    Data_ini </td>
-                      <td>    Data_fim </td>
-                      <td>    Gerente  </td>
-                      <td>    Objetivo </td>
-                      <td>    Situação     </td>
-                      <td colspan="2"> Opções </td>
+                      <td><b>    Nome     </b></td>
+                      <td><b>    Data_ini </b></td>
+                      <td><b>    Data_fim </b></td>
+                      <td><b>    Gerente  </b></td>
+                      <td><b>    Objetivo </b></td>
+                      <td><b>    Situação </b></td>
+                      <td colspan="2"><b> Opções </b></td>
                   </tr>
              
               <?php 

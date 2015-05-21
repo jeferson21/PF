@@ -2,7 +2,7 @@
 <html>
    <body>
 		<?=form::open('Objetivos/salvar') ?>
-			  Grupo: <?php echo form::select('GRUPOS_idGRUPO',$GRUPOS_idGRUPO); ?> <br><br>	
+			    Grupo: <?php echo form::select('GRUPOS_idGRUPO',$GRUPOS_idGRUPO); ?> <br><br>	
 		      Descrição: <?=form::input('DESCRICAO_OBJ');
                         if(isset($errors['DESCRICAO_OBJ'])) echo $errors['DESCRICAO_OBJ'];?> <br><br>
 		      Situação: <?=form::select('SITUACAO_OBJ', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
@@ -11,10 +11,10 @@
 
 		  <table>
                   <tr>
-                      <td>    Decrição     </td>
-                      <td>    Grupo   </td>
-                      <td>    Situação     </td>
-                      <td colspan="2"> Opções </td>
+                      <td><b>    Decrição </b></td>
+                      <td> <b>   Grupo   </b></td>
+                      <td> <b>   Situação  </b> </td>
+                      <td colspan="2"><b> Opções </b></td>
                   </tr>
              
               <?php 

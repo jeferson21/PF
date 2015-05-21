@@ -3,7 +3,7 @@
    <body>
 
       <?=form::open('Perspectivas/salvar') ?> 
-      	  Tipo <?=form::select('TIPO_PERSP', array('Custo' => 'Custo' , 'Prazo' => 'Prazo', 'Satisfação' => 'Satisfação'));?> <br><br>
+      	  Tipo <?=form::select('TIPO_PERSP', array('0' => 'Custo' , '1' => 'Prazo', '2' => 'Satisfação'));?> <br><br>
             Descrição: <?=form::input('DESCRICAO_PERSP'); 
                           if(isset($errors['DESCRICAO_PERSP'])) echo $errors['DESCRICAO_PERSP'];
                        ?> <br><br>
@@ -13,16 +13,21 @@
 
             <table>
                   <tr>
-                      <td>    Tipo     </td>
-                      <td>    Descrição     </td>
-                      <td>    Situação     </td>
-                      <td colspan="2"> Opções </td>
+                      <td><b>    Tipo     </b></td>
+                      <td><b>    Descrição   </b></td>
+                      <td><b>    Situação     </b></td>
+                      <td colspan="2"><b> Opções </b></td>
                   </tr>
              
               <?php 
                  foreach($perspectivas as $perspectiva) { ?>  
                   <tr>
-                     <td> <?=$perspectiva->TIPO_PERSP?>  </td>
+                     <td><?php
+                            if($perspectiva->TIPO_PERSP==0) { echo "Custo"; } 
+                            else if($perspectiva->TIPO_PERSP==1) { echo "Prazo"; }
+                            else { echo "Satisfação"; }
+                          ?> 
+                     </td>
                      <td> <?=$perspectiva->DESCRICAO_PERSP?> </td>
                      <td> <?php 
                             if($perspectiva->SITUACAO_PERSP==0) { echo "Ativo"; } 

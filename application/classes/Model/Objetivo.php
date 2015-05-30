@@ -3,6 +3,7 @@
 class Model_Objetivo extends ORM {
   
   protected $_primary_key = 'idOBJETIVO'; #dizendo qual é a chave primária
+  protected $_desc_column = 'DESCRICAO_OBJ';
   
   protected $_has_many = array(
   	'projeto' => array(

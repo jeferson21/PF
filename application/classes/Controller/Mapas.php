@@ -17,9 +17,19 @@ class Controller_Mapas extends Controller_Template {
     }
 
     public function action_exibir() {
-        $this->template->content = 'Os mapas serão exibidos aqui de acordo com ano';
+        $this->template->content= View::Factory('templateMapa');
+        return $this->template->content->tabela = $this->action_get_map();
     }
 
+    public function action_get_map(){
+        $mapa = ORM::Factory('Mapa')->find();
+        $item = $mapa->itens;
+        $perspectivas = $item->perspectivas;            
+        $perspectivas = ORM::Factory('Perspectiva')->find_all()->as_array();
+
+        return $this->template->content= View::Factory('templateTabelaMapa')
+            ->set('perspectivas', $perspectivas);            
+    }
 
     public function action_salvar() {
         $OBJETIVOS_idOBJETIVO = ORM::Factory('Objetivo')->find_all()->as_array('idOBJETIVO' ,'DESCRICAO_OBJ');
@@ -37,7 +47,7 @@ class Controller_Mapas extends Controller_Template {
         }
          $this->template->content= View::Factory('templateMapas')
             ->set('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO)
-            ->bind('mapas', $mapas)
+            ->set('mapas', $mapas)
             ->set('errors', $errors);
     }   
 

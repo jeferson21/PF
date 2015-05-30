@@ -6,44 +6,39 @@ class Controller_Itens extends Controller_Template {
 
 	 
    public function action_index() {
+    
       $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
                                     ->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP');
       $ME_idME = ORM::Factory('Mapa')
-                                    ->find_all()->as_array('idME' ,'ANO');
-      $GRUPOS_idGRUPO = ORM::Factory('Grupo')
-                                    ->find_all()->as_array('idGRUPO' ,'CATEGORIA');
-      $OBJETIVOS_idOBJETIVO = ORM::Factory('Objetivo')
-                                    ->find_all()->as_array('idOBJETIVO' ,'DESCRICAO_OBJ');                               
-      $INDICADORES_idINDICADORES = ORM::Factory('Indicador')->find_all()->as_array('idINDICADORES','DESCRICAO_IND');
+                                    ->find_all()->as_array('idME' ,'ANO');      
 
       $this->template->content= View::Factory('templateItens')
                      ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
-                     ->set('ME_idME',$ME_idME) 
-                     ->set('GRUPOS_idGRUPO',$GRUPOS_idGRUPO)
-                     ->set('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO)
-                     ->set('INDICADORES_idINDICADORES', $INDICADORES_idINDICADORES);
+                     ->set('ME_idME',$ME_idME);
     }
 
 
   	public function action_salvar() {
-       $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
+        $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
                                     ->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP');
-        $grupos=ORM::Factory('Grupo')->find_all();
+        $ME_idME = ORM::Factory('Mapa')
+                                    ->find_all()->as_array('idME' ,'ANO');         
         $errors= array();
         try {
             if(HTTP_Request::POST == $this->request->method()) {
-                    $grupo = ORM::Factory('Grupo');
-                  	$grupo -> values($_POST);
-                  	$grupo -> save();
-                  	$this->redirect('Grupos');
+                    $item = ORM::Factory('Item');
+                  	$item -> values($_POST);
+                    $item -> save();                  
+                    $item->add('perspectivas', $_POST['perspectivas']);                  
+                  	$item -> save();
+                  	$this->redirect('Itens');
              }        
          } catch(ORM_Validation_Exception $e) {
              $errors = $e->errors('forms');
          }
-          	$this->template->content= View::Factory('templateGrupos')
+          	$this->template->content= View::Factory('templateItens')
                  ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
-                 ->bind('grupos', $grupos)
-                 ->set('errors', $errors);
+                 ->set('ME_idME',$ME_idME);
       }
 
     public function action_delete() {

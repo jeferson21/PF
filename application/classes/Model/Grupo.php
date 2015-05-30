@@ -6,7 +6,7 @@ class Model_Grupo extends ORM {
   protected $_has_many = array(
   		'objetivo' => array(
   			'model' => 'Objetivo',
-  			'foreign_key' => 'GRUPO_idGRUPO'
+  			'foreign_key' => 'GRUPOS_idGRUPO'
 		)
   );
 

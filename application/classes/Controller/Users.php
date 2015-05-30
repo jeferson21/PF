@@ -12,7 +12,7 @@ class Controller_Users extends Controller_Template { /* Controller_Template é u
 	
 	public function action_login() {			
 	       		 
-	 /*
+	 
 	 	if (Auth::instance()->logged_in()) 	{   
 		          $this->redirect(Route::get('home')->uri(
 				 		array(
@@ -22,7 +22,7 @@ class Controller_Users extends Controller_Template { /* Controller_Template é u
 						));
 		                return false;            
 		}
- 	 */
+ 	 
 
 	   $errors = array();    
        try {

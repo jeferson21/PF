@@ -4,14 +4,11 @@
 		<?=form::open('Itens/salvar') ?>
 
       Ano do Mapa: <?=form::select('ME_idME',$ME_idME); ?><br><br> 	   
-
-      Perspectiva: <?php echo form::select('PERSPECTIVAS_idPERSPECTIVA', $PERSPECTIVAS_idPERSPECTIVA);?><br><br> 
-
-      Grupo: <?=form::select('GRUPOS_idGRUPO',$GRUPOS_idGRUPO); ?><br><br>
-       
-      Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO);?><br><br>
-
-      Indicador:<?=form::select('INDICADORES_idINDICADORES', $INDICADORES_idINDICADORES);?><br><br>
+      Perspectivas: <br>
+      <?php foreach ($PERSPECTIVAS_idPERSPECTIVA as $id => $desc) {
+          echo form::checkbox('perspectivas[]', $id) . " " . $desc . "<br><br>";
+      }
+      ?>       
         	  
 		    <?=form::submit('btn_submit', 'Salvar') ?>
 		<?=form::close()?> 

@@ -7,8 +7,10 @@ class Controller_Itens extends Controller_Template {
 	 
    public function action_index() {
     
+    
       $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
                                     ->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP');
+      
       $ME_idME = ORM::Factory('Mapa')
                                     ->find_all()->as_array('idME' ,'ANO');      
 
@@ -24,6 +26,7 @@ class Controller_Itens extends Controller_Template {
         $ME_idME = ORM::Factory('Mapa')
                                     ->find_all()->as_array('idME' ,'ANO');         
         $errors= array();
+
         try {
             if(HTTP_Request::POST == $this->request->method()) {
                     $item = ORM::Factory('Item');

@@ -1,34 +1,26 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
-  <body>
-      <?=form::open('Metas/salvar') ?>  	  
-        	    
-            Indicador: <?php echo form::select('INDICADORES_idINDICADOR',$INDICADORES_idINDICADOR); ?> <br><br>  
-              
-            Descrição: <?=form::input('DESCRICAO_MET'); 
-                          if(isset($errors['DESCRICAO_MET'])) echo $errors['DESCRICAO_MET'];
-                        ?> <br><br>
-            Ano: <?=form::input('ANO');
-                      if(isset($errors['ANO'])) echo $errors['ANO'];
-                   ?><br><br>
-            Unidade: <?=form::select('UNIDADE', array('0'=>'%','1'=>'Num', '2'=>'R$'));?><br><br>
-
-            Vermelho: [ De <?=form::input('VERMELHO_INI');   
-                                if(isset($errors['VERMELHO_INI'])) echo $errors['VERMELHO_INI'];?> 
-                         até <?=form::input('VERMELHO_LIM'); 
-                                if(isset($errors['VERMELHO_LIM'])) echo $errors['VERMELHO_LIM'];?>] <br><br>
-
-            Amarelo: [ De <?=form::input('AMARELO_INI'); 
-                              if(isset($errors['AMARELO_INI'])) echo $errors['AMARELO_INI'];?> 
-                         até <?=form::input('AMARELO_LIM'); 
-                                 if(isset($errors['AMARELO_LIM'])) echo $errors['AMARELO_INI'];?> ] <br><br>
-
-            Verde:  [ Maior ou igual a: <?=form::input('VERDE'); 
-                              if(isset($errors['VERDE'])) echo $errors['VERDE'];?> ]<br><br>
-
-            Situação: <?=form::select('SITUACAO_MET', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
-          <?=form::submit('btn_submit', 'Salvar') ?>
-       <?=form::close()?>
+	<body>
+		<?php $update_link = Route::get('default')
+		          ->uri(array(
+		            'controller' => 'Metas', 'action' => 'edit', 'id' => $meta->idMETA));?>    
+		
+	   <?=form::open($update_link) ?>  
+	   	   Indicador: <?=form::select('INDICADORES_idINDICADOR', $INDICADORES_idINDICADOR);?><br><br> 
+           Descrição: <?=form::input('DESCRICAO_MET', $meta->DESCRICAO_MET);?> <br><br>
+           Ano: <?=form::input('ANO', $meta->ANO);?><br><br>
+ 		       Unidade: <?=form::select('UNIDADE', array('0'=>'%','1'=>'Num', '2'=>'R$'), 
+ 		   					 $meta->UNIDADE);?><br><br>
+           Vermelho: [ De <?=form::input('VERMELHO_INI', $meta->VERMELHO_INI);?> 
+          			  até <?=form::input('VERMELHO_LIM', $meta->VERMELHO_LIM);?> ] <br><br>
+           Amarelo: [ De <?=form::input('AMARELO_INI', $meta->AMARELO_INI);?> 
+           			  até <?=form::input('AMARELO_LIM', $meta->AMARELO_LIM);?> ] <br><br>
+           Verde:  [ Maior ou igual a: <?=form::input('VERDE', $meta->VERDE);?> ]<br><br>
+           Situação: <?=form::select('SITUACAO_MET', array('0'=>'Ativo','1'=>'Inativo'), 
+                             $meta->SITUACAO_MET);?><br><br>
+            <?=form::submit('btn_submit', 'Salvar') ?>
+        <?=form::close()?>
+		<br><br>
 
         <table>
                   <tr>
@@ -77,6 +69,7 @@
                   </tr>              
               <?php } ?>
           </table>
-    </body>
+
+
+	</body>
 </html>
-  

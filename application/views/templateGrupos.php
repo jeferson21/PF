@@ -3,7 +3,7 @@
    <body>
 	
       <?=form::open('Grupos/salvar') ?>
-  		  Perspectiva: <?php echo form::select('PERSPECTIVAS_idPERSPECTIVA', $PERSPECTIVAS_idPERSPECTIVA); ?> <br><br>	
+  		  Perspectiva: <?php echo form::select('PERSPECTIVAS_idPERSPECTIVA', $PERSPECTIVAS_idPERSPECTIVA);?> <br><br>	
   		  Categoria: <?=form::input('CATEGORIA');
                        if(isset($errors['CATEGORIA'])) echo $errors['CATEGORIA'];?> <br><br>
   	    Situação: <?=form::select('SITUACAO_GR', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>     
@@ -22,7 +22,7 @@
                  foreach($grupos as $grupo) { ?>  
                   <tr>
                      <td> <?=$grupo->CATEGORIA?>  </td>
-                     <td> <?=$grupo->perspectiva->DESCRICAO_PERSP;?> </td>
+                     <td> <?=$grupo->perspectiva->DESCRICAO_PERSP?> </td>
                      <td> <?php 
                             if($grupo->SITUACAO_GR==0) { echo "Ativo"; } 
                             else { echo "Inativo";  }

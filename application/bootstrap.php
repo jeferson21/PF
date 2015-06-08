@@ -137,7 +137,7 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'Users',
+		'controller' => 'Perspectivas',
 		'action'     => 'index',
 	));
 

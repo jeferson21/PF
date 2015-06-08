@@ -2,7 +2,8 @@
 
 class Model_Grupo extends ORM {
   protected $_primary_key = 'idGRUPO'; #dizendo que a chave é matricula
-  
+  protected $_desc_column = 'CATEGORIA';
+
   protected $_has_many = array(
   		'objetivo' => array(
   			'model' => 'Objetivo',

@@ -1,19 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Model_Mapa extends ORM {
-  protected $_primary_key = 'idME'; #dizendo qual é a chave primária
+  protected $_primary_key = 'idME'; 
+  protected $_desc_column = 'ANO';
   
-  protected $_belongs_to = array(
-	      'objetivo' => array(
-	        'model' => 'Objetivo',
-	        'foreign_key' => 'OBJETIVOS_idOBJETIVO'
-	    )
-  );
-
   protected $_has_many = array(
   		'itens' => array(
   			'model' => 'Item',
-  			'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA'
+  			'foreign_key' => 'MAPAS_idME'
 		)
   );
 

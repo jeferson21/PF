@@ -15,27 +15,28 @@
         <a href="#" class="navbar-brand"> SG Mapa Estratégico |</a>                
     </div>
        
-                <ul class="nav nav-tabs">
-                    <li> <?=html::anchor('Perspectivas/index','Perspectivas')?></li>
-                    <li><?=html::anchor('Grupos/index','Grupos')?></li>
-                    <li><?=html::anchor('Objetivos/index','Objetivos Estratégicos')?></li>
-                    <li><?=html::anchor('Projetos/index','Projetos')?> </li>
-                    <li><?=html::anchor('Indicadores/index','Indicadores')?></li>
-                    <li><?=html::anchor('Metas/index','Metas')?></li>
-                               
-                    <li class="dropdown">
-                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                          Mapa
-                          <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
+       <ul class="nav nav-tabs">
+          <li> <?=html::anchor('Perspectivas/index','Perspectivas')?></li>
+          <li><?=html::anchor('Grupos/index','Grupos')?></li>
+          <li><?=html::anchor('Objetivos/index','Objetivos Estratégicos')?></li>
+          <li><?=html::anchor('Projetos/index','Projetos')?> </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mapa<b class="caret"></b></a>
+                <ul class="dropdown-menu">
                           <li><?=html::anchor('Mapas/index','Criar Mapa')?></li>
-                          <li><?=html::anchor('Itens/index','Configurar Mapa')?></li>
+                          <li><?=html::anchor('Itens/index','Montar Mapa')?></li>
                           <li><?=html::anchor('Mapas/exibir','Exibir Mapas')?></li>
-                        </ul>
-                    </li>
-                     
-               </ul>
+                </ul>
+          </li>
+           <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                          <li><?=html::anchor('Indicadores/index','Cadastrar Indicador')?></li>
+                          <li><?=html::anchor('Importacoes/index','Importar XML')?></li>
+                </ul>
+          </li>
+          <li><?=html::anchor('Metas/index','Metas')?></li>                    
+        </ul>
                   
                <div class="logout">
                    <?php 
@@ -55,7 +56,6 @@
                   </div>
               </div>
           </div>
-
-          
+  
   </body>
 </html>

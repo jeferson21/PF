@@ -3,7 +3,6 @@
    <body>
 		<?=form::open('Mapas/salvar') ?>
 
-			  Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
 			  Missão: <?=form::input('MISSAO'); 
 			     			if(isset($errors['MISSAO'])) echo $errors['MISSAO'];?><br><br>
 			  Visão: <?=form::input('VISAO');

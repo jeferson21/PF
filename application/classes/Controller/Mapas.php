@@ -32,10 +32,11 @@ class Controller_Mapas extends Controller_Template {
     }
 
     public function action_salvar() {
-        $OBJETIVOS_idOBJETIVO = ORM::Factory('Objetivo')->find_all()->as_array('idOBJETIVO' ,'DESCRICAO_OBJ');
+        $OBJETIVOS_idOBJETIVO = ORM::get_select('Objetivo');
         $mapas = ORM::Factory('Mapa')->find_all();                         
+        
         $errors = array();
-     try {
+        try {
             if(HTTP_Request::POST == $this->request->method()){ #verificando se o método é POST
                 $mapa = ORM::Factory('Mapa');
                 $mapa -> values($_POST);
@@ -58,8 +59,7 @@ class Controller_Mapas extends Controller_Template {
     }
 
     public function action_edit() {  
-        $OBJETIVOS_idOBJETIVO = ORM::Factory('Objetivo')
-                                ->find_all()->as_array('idOBJETIVO' ,'DESCRICAO_OBJ');
+        $OBJETIVOS_idOBJETIVO = ORM::get_select('Objetivo');
         $idME = $this->request->param('id');
         // verificando se o método é post
         if(HTTP_Request::POST == $this->request->method()) { 

@@ -3,7 +3,7 @@
    <body>
 
       <?=form::open('Perspectivas/salvar') ?> 
-      	  Tipo <?=form::select('TIPO_PERSP', array('0' => 'Custo' , '1' => 'Prazo', '2' => 'Satisfação'));?> <br><br>
+      	    Tipo <?=form::select('TIPO_PERSP', array('0' => 'Custo' , '1' => 'Prazo', '2' => 'Satisfação'));?> <br><br>
             Descrição: <?=form::input('DESCRICAO_PERSP'); 
                           if(isset($errors['DESCRICAO_PERSP'])) echo $errors['DESCRICAO_PERSP'];
                        ?> <br><br>

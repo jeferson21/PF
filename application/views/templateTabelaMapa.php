@@ -3,9 +3,6 @@
 	<?php 
 	 	# Pra listar todos os mapas existentes fazer isso aqui na página de mapas igual
 		
-		#INSERINDO LINHA TESTE 
-
-	
 		foreach ($perspectivas as $key => $perspectiva) {
 			$grupos = $perspectiva->grupo->find_all();
 			$setObjetivos = array();		

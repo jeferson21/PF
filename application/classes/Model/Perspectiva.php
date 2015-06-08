@@ -2,17 +2,19 @@
 
 class Model_Perspectiva extends ORM {
   protected $_primary_key = 'idPERSPECTIVA'; #dizendo que a chave é matricula
-    
+  protected $_desc_column = 'DESCRICAO_PERSP';
+
 	protected $_has_many = array(
-		'grupo' => array(
+	   'grupo' => array(
   			'model' => 'Grupo',
   			'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA'
 		),
-  		'itens' => array(
+
+  	   'itens' => array(
             'model' => 'item',
-            'through' => 'PERSPECTIVAS_has_ITENS',
-            'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVAS',
-            'far_key' => 'ITENS_idITENS'
+            'through' => 'ITENS_has_PERSPECTIVAS',
+            'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA',
+            'far_key' => 'ITENS_idITEM'
         ),
   	);
 

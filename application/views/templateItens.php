@@ -1,54 +1,58 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
    <body>
-		<?=form::open('Itens/salvar') ?>
+		
+    <?=form::open('Itens/salvar') ?>
 
-      Ano do Mapa: <?=form::select('ME_idME',$ME_idME); ?><br><br> 	   
+      Ano do Mapa: <?=form::select('MAPAS_idME',$MAPAS_idME); ?><br><br> 	   
       Perspectivas: <br>
       <?php foreach ($PERSPECTIVAS_idPERSPECTIVA as $id => $desc) {
           echo form::checkbox('perspectivas[]', $id) . " " . $desc . "<br><br>";
       }
       ?>       
         	  
-		    <?=form::submit('btn_submit', 'Salvar') ?>
+		  <?=form::submit('btn_submit', 'Salvar') ?>
 		<?=form::close()?> 
 
 
  		 <table>
                   <tr>
                       <td>   <b> Ano </b> </td>
-                      <td>   <b> Perspectiva </b> </td>
-                      <td>   <b> Grupo    </b> </td>
-                      <td>   <b> Objetivo Estratégico  </b> </td>
-                      <td>   <b> Indicador  </b></td>
-                      <td>   <b>Situação </b>   </td>
-                      <td colspan="2"><b> Opções </b> </td>
+                      <td>   <b> Visao </b> </td>
+                      <td>   <b> Missao   </b> </td>
+                      
+                      
+                      <td colspan="3"><b> Opções </b> </td>
                   </tr>
-             <!--
+             
               <?php 
-                 /*  foreach($mapas as $mapa) { ?>  
+                   foreach($itens as $item) { ?>  
                   <tr>
-                     <td> <?=$mapa->MISSAO?>  </td>
-                     <td> <?=$mapa->VISAO?> </td>
-                     <td> <?=$mapa->ANO?> </td>
-                     <td> <?php 
-                            if($mapa->SITUACAO_ME==0) { echo "Ativo"; } 
-                            else { echo "Inativo";  }
-                          ?> 
-                     </td>
+                     <td> <?=$item->mapa->ANO   ?>  </td>
+                     <td> <?=$item->mapa->VISAO ?> </td>
+                     <td> <?=$item->mapa->MISSAO ?> </td>
+                   
+
                      <td> 
                         <?php $delete_link = Route::get('default')
 	                        ->uri(array(
-	                          'controller' => 'Mapas', 'action' => 'delete', 'id' => $mapa->idME));?>
+	                          'controller' => 'Itens', 'action' => 'delete', 'id' => $item->idITEM));?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
 	                        ->uri(array(
-	                          'controller' => 'Mapas', 'action' => 'edit', 'id' => $mapa->idME));?>
+	                          'controller' => 'Itens', 'action' => 'edit', 'id' => $item->idITEM));?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
-                      </td>   
+                      </td> 
+                      <td> 
+                          <?php $update_link = Route::get('default')
+                          ->uri(array(
+                            'controller' => 'Mapas', 'action' => 'exibir', 'id' => $item->idITEM));?>
+                          <?= HTML::anchor($update_link, 'Exibir Mapa'); ?>
+                      </td> 
+
                   </tr>         	   
-              <?php } */?> -->
+              <?php } ?>
           </table>
   	</body>
 </html>

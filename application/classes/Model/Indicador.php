@@ -2,7 +2,7 @@
 
 class Model_Indicador extends ORM {
   protected $_table_name = 'indicadores'; #definindo nome da tab no plural para o Kohana interpretar
-  protected $_primary_key = 'idINDICADORES'; #definindo chave primária
+  protected $_primary_key = 'idINDICADOR'; #definindo chave primária
   protected $_desc_column = 'DESCRICAO_IND';
   
   protected $_belongs_to = array(
@@ -13,13 +13,14 @@ class Model_Indicador extends ORM {
   );
 
   protected $_has_many = array(
-  		'metas' => array(
+  		'meta' => array(
   			'model' => 'Meta',
-  			'foreign_key' => 'INDICADORES_idINDICADORES'
+  			'foreign_key' => 'INDICADORES_idINDICADOR'
 		),
+      
      'importacoes' => array(
         'model' => 'Importacao',
-        'foreign_key' => 'idIMPORTACAO'
+        'foreign_key' => 'INDICADORES_idINDICADOR'
     ), 
   );
 
@@ -30,10 +31,6 @@ class Model_Indicador extends ORM {
             array('min_length', array(':value', 5)),
             array('max_length', array(':value', 100)) 
          ),
-
-         'CONFIG_IND' => array ( 
-            array('not_empty')
-         )
      );
   }
 

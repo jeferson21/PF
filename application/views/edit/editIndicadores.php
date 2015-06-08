@@ -3,15 +3,16 @@
 <html>
 	<body>
 
-		[ Cadastro de Indicadores ] <br><br>
-
-			<?=form::open('Indicadores/salvar') ?>
+		<?php $update_link = Route::get('default')
+             ->uri(array(
+               'controller' => 'Indicadores', 'action' => 'edit', 'id' => $indicador->idINDICADOR));?> 
+			<?=form::open($update_link) ?>
 		  		 
-				Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
-				Descrição: <?=form::input('DESCRICAO_IND');
+			Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
+			Descrição: <?=form::input('DESCRICAO_IND', $indicador->DESCRICAO_IND);
 				  				if(isset($errors['DESCRICAO_IND'])) echo $errors['DESCRICAO_IND']; 
 				  			 ?> <br><br>     
-			    Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
+			Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
 
 			    <?=form::submit('btn_submit', 'Salvar') ?>
 			<?=form::close()?> 

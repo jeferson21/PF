@@ -23,14 +23,13 @@ class Controller_Perspectivas extends Controller_Template { /* Controller_Templa
                 $perspectiva -> save();
                 $this->redirect('Perspectivas');
             }
-        } 
-        catch(ORM_Validation_Exception $e) {
+        } catch(ORM_Validation_Exception $e) {
             $errors = $e->errors('forms');
         }
 
          $this->template->content= View::Factory('templatePerspectivas')
-            ->bind('perspectivas', $perspectivas)
-            ->set('errors', $errors);
+                                        ->bind('perspectivas', $perspectivas)
+                                        ->set('errors', $errors);
     }   
 
     public function action_delete() {
@@ -41,14 +40,14 @@ class Controller_Perspectivas extends Controller_Template { /* Controller_Templa
 
     public function action_edit() {  
         $idPERSPECTIVA = $this->request->param('id');
+        $perspectiva= ORM::Factory('Perspectiva',$idPERSPECTIVA);      
         // verificando se o método é post
         if(HTTP_Request::POST == $this->request->method()) { 
             $_POST['idPERSPECTIVA'] = $idPERSPECTIVA;
-            $projeto = ORM::Factory('Perspectiva', $idPERSPECTIVA);            
-            $projeto -> values($_POST);
-            $projeto -> save();            
+            $perspectiva = ORM::Factory('Perspectiva', $idPERSPECTIVA);            
+            $perspectiva -> values($_POST);
+            $perspectiva -> save();            
         }         
-        $perspectiva= ORM::Factory('Perspectiva',$idPERSPECTIVA);      
         $this->template->content= View::Factory('edit/editPerspectivas')
             ->set('perspectiva', $perspectiva);
     }

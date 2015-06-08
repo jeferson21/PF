@@ -16,10 +16,7 @@ class Model_Objetivo extends ORM {
   			'foreign_key' => 'OBJETIVO_idOBJETIVO'
 		 ),
 
-  	'mapa' => array(
-  			'model' => 'Mapa',
-  			'foreign_key' => 'OBJETIVO_idOBJETIVO'
-		 )
+  	
   );
 
   protected $_belongs_to = array(

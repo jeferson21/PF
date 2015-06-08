@@ -4,35 +4,33 @@ class Controller_Itens extends Controller_Template {
 
 	public $template = 'templateWelcome';
 
-	 
    public function action_index() {
-    
     
       $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
                                     ->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP');
       
-      $ME_idME = ORM::Factory('Mapa')
-                                    ->find_all()->as_array('idME' ,'ANO');      
+      $MAPAS_idME = ORM::Factory('Mapa')->find_all()->as_array('idME' ,'ANO');  
 
-      $this->template->content= View::Factory('templateItens')
-                     ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
-                     ->set('ME_idME',$ME_idME);
+      $itens=ORM::Factory('Item')->find_all();
+      if(!isset($itens[0])) 
+          $itens=array();          
+       $this->template->content= View::Factory('templateItens')
+                                ->bind('itens', $itens)
+                                ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
+                                ->set('MAPAS_idME',$MAPAS_idME);                 
     }
 
-
   	public function action_salvar() {
-        $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')
-                                    ->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP');
-        $ME_idME = ORM::Factory('Mapa')
-                                    ->find_all()->as_array('idME' ,'ANO');         
+        $PERSPECTIVAS_idPERSPECTIVA = ORM::get_select('Perspectiva');                     
+        $MAPAS_idME = ORM::get_select('Mapa');
+                                    
         $errors= array();
-
         try {
             if(HTTP_Request::POST == $this->request->method()) {
                     $item = ORM::Factory('Item');
                   	$item -> values($_POST);
                     $item -> save();                  
-                    $item->add('perspectivas', $_POST['perspectivas']);                  
+                    $item -> add('perspectivas', $_POST['perspectivas']);  
                   	$item -> save();
                   	$this->redirect('Itens');
              }        
@@ -41,9 +39,10 @@ class Controller_Itens extends Controller_Template {
          }
           	$this->template->content= View::Factory('templateItens')
                  ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
-                 ->set('ME_idME',$ME_idME);
+                 ->set('MAPAS_idME',$MAPAS_idME);
       }
 
+    /*
     public function action_delete() {
         $idGRUPO = $this->request->param('id');        
         $grupo = ORM::Factory('Grupo', $idGRUPO)->delete();  
@@ -51,7 +50,7 @@ class Controller_Itens extends Controller_Template {
     }
 
     public function action_edit() { 
-       $PERSPECTIVAS_idPERSPECTIVA = ORM::Factory('Perspectiva')->find_all()->as_array('idPERSPECTIVA' ,'DESCRICAO_PERSP'); 
+       $PERSPECTIVAS_idPERSPECTIVA = ORM::get_select('Perspectiva');
         $idGRUPO = $this->request->param('id');
         // verificando se o método é post
         if(HTTP_Request::POST == $this->request->method()){
@@ -66,7 +65,7 @@ class Controller_Itens extends Controller_Template {
             ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA);
     }
 
-
+ */
 
  
 } 

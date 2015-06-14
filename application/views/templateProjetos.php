@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
    <body>
-
+      <legend>Projetos</legend>
     	<?=form::open('Projetos/salvar') ?>
     	    Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
           Nome do Projeto: <?=form::input('NOME_PROJ'); if(isset($errors['NOME_PROJ'])) echo $errors['NOME_PROJ']; ?> <br><br>
@@ -20,17 +20,17 @@
                     <?=form::input('DATA_FIM[ANO]');
                         if(isset($errors['DATA_INI'])) echo $errors['DATA_INI'];?> <br><br>
 
-          Gerente: <?=form::input('GERENTE'); if(isset($errors['GERENTE'])) echo $errors['GERENTE']; ?> <br><br>
+          Gerente: <?=form::input('RESPONSAVEL'); if(isset($errors['RESPONSAVEL'])) echo $errors['RESPONSAVEL']; ?> <br><br>
           Situação: <?=form::select('SITUACAO_PROJ', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
         	<?=form::submit('btn_submit', 'Salvar') ?>
-    	<?=form::close()?>
+    	<?=form::close()?><br>
 
-    <table>
+    <table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td><b>    Nome     </b></td>
                       <td><b>    Data_ini </b></td>
                       <td><b>    Data_fim </b></td>
-                      <td><b>    Gerente  </b></td>
+                      <td><b>    Responsável  </b></td>
                       <td><b>    Objetivo </b></td>
                       <td><b>    Situação </b></td>
                       <td colspan="2"><b> Opções </b></td>
@@ -42,7 +42,7 @@
                      <td> <?=$projeto->NOME_PROJ?>  </td>
                      <td> <?=$projeto->DATA_INI?> </td>
                      <td> <?=$projeto->DATA_FIM?>  </td>
-                     <td> <?=$projeto->GERENTE?> </td>
+                     <td> <?=$projeto->RESPONSAVEL?> </td>
                      <td> <?=$projeto->objetivo->DESCRICAO_OBJ?>  </td> 
                      <td> <?php 
                             if($projeto->SITUACAO_PROJ==0) { echo "Ativo"; } 

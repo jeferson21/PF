@@ -15,6 +15,9 @@ class ORM extends Kohana_ORM {
 		$desc_column = $object->_desc_column;		
 		$object = $object->find_all();		
 		return $object->as_array($primary_key, $desc_column);
+
+	 	# Como se fosse:
+	 	# $Variavel=ORM::Factory('Model')->find_all()->as_array('primary_key' ,'desc_column');
 	}
 	
 }

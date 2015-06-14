@@ -8,15 +8,17 @@ class Model_Perspectiva extends ORM {
 	   'grupo' => array(
   			'model' => 'Grupo',
   			'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA'
-		),
+		  ),
+     
+     'item' => array(
+        'model'=>'Item',
+         'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA'
+      ),
+  );
 
-  	   'itens' => array(
-            'model' => 'item',
-            'through' => 'ITENS_has_PERSPECTIVAS',
-            'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA',
-            'far_key' => 'ITENS_idITEM'
-        ),
-  	);
+  protected $_belongs_to = array(
+
+  );
 
   public function rules() {   #Validação dos campos
 		return array(

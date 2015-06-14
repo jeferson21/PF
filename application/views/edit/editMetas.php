@@ -1,6 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
 	<body>
+    <legend>Editar Metas</legend>
 		<?php $update_link = Route::get('default')
 		          ->uri(array(
 		            'controller' => 'Metas', 'action' => 'edit', 'id' => $meta->idMETA));?>    
@@ -22,7 +23,7 @@
         <?=form::close()?>
 		<br><br>
 
-        <table>
+        <table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td><b>    Indicador     </b></td>
                       <td><b>    Descrição da Meta        </b></td>
@@ -70,6 +71,11 @@
               <?php } ?>
           </table>
 
+          <?php
+               $link = Route::get('default')
+                      ->uri(array('controller' => 'Metas', 'action' => 'index'));
+             ?> 
+           <?=HTML::anchor($link, 'Voltar para Metas');?>
 
 	</body>
 </html>

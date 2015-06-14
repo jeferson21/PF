@@ -5,7 +5,6 @@ class Controller_Perspectivas extends Controller_Template { /* Controller_Templa
 	public $template = 'templateWelcome';
 
 	public function action_index() {
-
        $perspectivas=ORM::Factory('Perspectiva')->find_all();
         if(!isset($perspectivas[0])) 
           $perspectivas=array();
@@ -39,16 +38,19 @@ class Controller_Perspectivas extends Controller_Template { /* Controller_Templa
     }
 
     public function action_edit() {  
+        $perspectivas=ORM::Factory('Perspectiva')->find_all(); 
         $idPERSPECTIVA = $this->request->param('id');
-        $perspectiva= ORM::Factory('Perspectiva',$idPERSPECTIVA);      
-        // verificando se o método é post
+        $perspectiva= ORM::Factory('Perspectiva',$idPERSPECTIVA); 
+               
         if(HTTP_Request::POST == $this->request->method()) { 
             $_POST['idPERSPECTIVA'] = $idPERSPECTIVA;
             $perspectiva = ORM::Factory('Perspectiva', $idPERSPECTIVA);            
             $perspectiva -> values($_POST);
-            $perspectiva -> save();            
+            $perspectiva -> save();
+            $this->redirect('Perspectivas');
         }         
         $this->template->content= View::Factory('edit/editPerspectivas')
-            ->set('perspectiva', $perspectiva);
+                                        ->set('perspectiva', $perspectiva)
+                                        ->bind('perspectivas', $perspectivas);
     }
 } 

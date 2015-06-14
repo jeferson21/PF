@@ -1,16 +1,16 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
    <body>
-	
+	    <legend>Grupos</legend> 
       <?=form::open('Grupos/salvar') ?>
   		  Perspectiva: <?php echo form::select('PERSPECTIVAS_idPERSPECTIVA', $PERSPECTIVAS_idPERSPECTIVA);?> <br><br>	
   		  Categoria: <?=form::input('CATEGORIA');
                        if(isset($errors['CATEGORIA'])) echo $errors['CATEGORIA'];?> <br><br>
   	    Situação: <?=form::select('SITUACAO_GR', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>     
 	      <?=form::submit('btn_submit', 'Salvar') ?>
-	   <?=form::close()?>
+	   <?=form::close()?><br>
 
-            <table>
+          <table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td><b>    Categoria  </b>   </td>
                       <td><b>    Perspectiva </b>  </td> 
@@ -34,10 +34,9 @@
                           'controller' => 'Grupos', 'action' => 'delete', 'id' => $grupo->idGRUPO));?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
-                          <?php $update_link = Route::get('default')
-                        ->uri(array(
-                          'controller' => 'Grupos', 'action' => 'edit', 'id' => $grupo->idGRUPO));?>
-                          <?= HTML::anchor($update_link, 'Edit'); ?>
+                          <?php $update_link = Route::get('default')->uri(array(
+                                  'controller' => 'Grupos', 'action' => 'edit', 'id' => $grupo->idGRUPO));?>
+                          <?=HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>         	   
               <?php } ?>

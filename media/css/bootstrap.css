@@ -1426,12 +1426,9 @@ pre code {
   
   /* Editado por mim */
       position: relative;
-      top: -15px;
+      top: 5px;
       border: 1px solid #ddd;      
-      border-top-right-radius: 5px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; 
-      border-bottom-right-radius: 5px;     
+      
   /**/
   padding-right: 15px;
   padding-left: 15px;
@@ -2328,6 +2325,9 @@ legend {
   color: #333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
+  /*meu*/
+  position: relative;
+  top: -25px;
 }
 label {
   display: inline-block;
@@ -3910,10 +3910,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  /*padding: 15px 15px;*/
   font-size: 18px;
   line-height: 20px;
   color: gray;
+
+  padding-top: 10px;
+  padding-left: 10px;
+
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -6236,37 +6240,40 @@ button.close {
 
 /* Meus arquivos CSS, acima só os pre-definidos do bootstrap */
 
-.logout {
-   border: 1px gray solid;
-   position: relative;
-   top: -35px;
-   padding-top: 1px;
-   height:24px;
-   width:60px;
-   margin-left: 945px;
-   text-align: center;
-   font-size:15px;
-   border-radius: 3px;
+.perspectiva {
+   border: 1px #ddd solid;
+   border-radius: 4px;
+   padding-left: 10px;
+   padding-bottom: 5px;
+   padding-right: 10px;
+   
+   
 }	
 
-.container-form {  
+.grupo {
+   border: 1px #ddd solid;
    position: relative;
-   top: -22px;
-   height:30px;
-   width:600px;
-   margin-left: 450px; 
-   font-size:12px;
- }
+   margin-left: 20px;
+   padding-left: 10px;
+   padding-bottom: 5px;
+   padding-right: 10px;
+} 
 
-.container-top {
-   background-color: #B0C4DE;
-   position: absolute;
-   top: 0px;
-   height:50px;
-   width:100%;
-   margin-left: 0px; 
-   font-size:18px;
-   font-family: Verdana;
-   padding-top: 10px;
-   padding-left: 10px; 
+.objetivo {
+   position: relative;
+   margin-left: 30px;
+   padding-left: 10px;
+   padding-bottom: 5px;
+   padding-right: 5px;
+
+
+} 
+
+.indicador {
+  position: relative;
+  margin-left: 40px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+
 }

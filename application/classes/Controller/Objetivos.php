@@ -4,6 +4,18 @@ class Controller_Objetivos extends Controller_Template {
 
 	public $template = 'templateWelcome';
 
+  public function action_getObjetivos(){
+    $this->auto_render = false;
+    $grupo = $this->request->POST('grupo');
+    $objetivos = ORM::Factory('Grupo', $grupo)->objetivo->find_all(); 
+    foreach ($objetivos as $key => $objetivo) {
+      echo form::checkbox('objetivo[]', $objetivo->idOBJETIVO, false, 
+        array('id' => 'checkObjetivos'.$objetivo->idOBJETIVO)) . " " . $objetivo->DESCRICAO_OBJ . "<br><br>";
+
+        echo "<div class='objetivo' id='objetivos{$objetivo->idOBJETIVO}'>"."</div>";
+    }
+  }
+
     public function action_index() {
         $GRUPOS_idGRUPO = ORM::Factory('Grupo')->find_all()->as_array('idGRUPO' ,'CATEGORIA'); 
         $objetivos=ORM::Factory('Objetivo')->find_all(); // lista todos os elementos da tab Objetivo
@@ -42,17 +54,22 @@ class Controller_Objetivos extends Controller_Template {
 
     public function action_edit() { 
       $GRUPOS_idGRUPO = ORM::Factory('Grupo')->find_all()->as_array('idGRUPO' ,'CATEGORIA');
-        $idOBJETIVO = $this->request->param('id');
+      $idOBJETIVO = $this->request->param('id');
+      $objetivo = ORM::Factory('Objetivo',$idOBJETIVO);
+      $objetivos=ORM::Factory('Objetivo')->find_all();      
+
         // verificando se o método é post
         if(HTTP_Request::POST == $this->request->method()){
             $_POST['idOBJETIVO'] = $idOBJETIVO;
             $objetivo = ORM::Factory('Objetivo', $idOBJETIVO);            
             $objetivo -> values($_POST);
-            $objetivo -> save();            
+            $objetivo -> save();  
+            $this->redirect('Objetivos');
         }         
-        $objetivo = ORM::Factory('Objetivo',$idOBJETIVO);      
+        
         $this->template->content= View::Factory('edit/editObjetivos')
             ->set('objetivo', $objetivo)
+            ->bind('objetivos', $objetivos)
             ->set('GRUPOS_idGRUPO',$GRUPOS_idGRUPO);
     }
 

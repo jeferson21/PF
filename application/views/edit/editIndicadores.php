@@ -2,6 +2,7 @@
 
 <html>
 	<body>
+    <legend>Editar Indicadores</legend>
 
 		<?php $update_link = Route::get('default')
              ->uri(array(
@@ -9,16 +10,16 @@
 			<?=form::open($update_link) ?>
 		  		 
 			Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
-			Descrição: <?=form::input('DESCRICAO_IND', $indicador->DESCRICAO_IND);
-				  				if(isset($errors['DESCRICAO_IND'])) echo $errors['DESCRICAO_IND']; 
+			Descrição: <?=form::input('TIPO_IND', $indicador->TIPO_IND);
+				  				if(isset($errors['TIPO_IND'])) echo $errors['TIPO_IND']; 
 				  			 ?> <br><br>     
-			Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
+			Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'), $indicador->SITUACAO_IND);?><br><br>
 
 			    <?=form::submit('btn_submit', 'Salvar') ?>
 			<?=form::close()?> 
 
 			<br>
-			<table>
+			<table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td><b>    Indicador </b>  </td> 
                       <td><b>    Objetivo Estratégico  </b>   </td>
@@ -29,7 +30,7 @@
               <?php 
                  foreach($indicadores as $indicador) { ?>  
                   <tr>
-                     <td> <?=$indicador->DESCRICAO_IND;?> </td>
+                     <td> <?=$indicador->TIPO_IND;?> </td>
                      <td> <?=$indicador->objetivo->DESCRICAO_OBJ?>  </td>
                      <td> <?php 
                             if($indicador->SITUACAO_IND==0) { echo "Ativo"; } 
@@ -50,5 +51,11 @@
                   </tr>         	   
               <?php } ?>
           </table>
+
+          <?php
+               $link = Route::get('default')
+                      ->uri(array('controller' => 'Indicadores', 'action' => 'index'));
+            ?> 
+            <?=HTML::anchor($link, 'Voltar para Indicadores');?>
 	</body>
 </html>

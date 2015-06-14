@@ -21,51 +21,52 @@ class Controller_Itens extends Controller_Template {
     }
 
   	public function action_salvar() {
-        $PERSPECTIVAS_idPERSPECTIVA = ORM::get_select('Perspectiva');                     
-        $MAPAS_idME = ORM::get_select('Mapa');
+        $MAPAS_idME = ORM::get_select('Mapa');      
                                     
         $errors= array();
         try {
             if(HTTP_Request::POST == $this->request->method()) {
-                    $item = ORM::Factory('Item');
-                  	$item -> values($_POST);
-                    $item -> save();                  
-                    $item -> add('perspectivas', $_POST['perspectivas']);  
-                  	$item -> save();
-                  	$this->redirect('Itens');
+                $idME = $_POST['MAPAS_idME'];
+
+                $delete = DB::delete('itens')
+                          ->where('MAPAS_idME', '=', $idME)
+                          ->execute(); #deletando os itens redundantes no mapa.
+
+                foreach ($_POST['indicador'] as $indicador) {
+                                   
+                  $item = ORM::Factory('Item');
+                  
+                   echo Debug::vars($_POST);
+
+                  $query = DB::select(array('i.idINDICADOR', 'INDICADORES_idINDICADOR'),
+                                           "i.OBJETIVOS_idOBJETIVO","o.GRUPOS_idGRUPO",
+                                           "g.PERSPECTIVAS_idPERSPECTIVA")
+                  ->from(array('indicadores', 'i'))
+                  ->join(array('objetivos','o'))->on('o.idOBJETIVO', '=', 'i.OBJETIVOS_idOBJETIVO')
+                  ->join(array('grupos','g'))->on('g.idGRUPO', '=', 'o.GRUPOS_idGRUPO')
+                  ->join(array('perspectivas','p'))->on('p.idPERSPECTIVA', '=', 'g.PERSPECTIVAS_idPERSPECTIVA')
+                  ->where('i.idINDICADOR', '=', $indicador)->as_object()->execute();
+
+
+                  foreach ($query as $consulta) {
+                         $consulta = (array)$consulta;
+                         echo Debug::vars($consulta);
+                       $consulta['MAPAS_idME'] = $idME;    
+                       $item -> values($consulta);
+                  }             
+                      
+                  $item -> save();                  
+                    
+                 } 
+                 $this->redirect('Itens');
              }        
          } catch(ORM_Validation_Exception $e) {
              $errors = $e->errors('forms');
          }
-          	$this->template->content= View::Factory('templateItens')
-                 ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA)
-                 ->set('MAPAS_idME',$MAPAS_idME);
+          	$this->template->content= View::Factory('templateItens')                 
+                                        ->set('MAPAS_idME',$MAPAS_idME);
       }
 
-    /*
-    public function action_delete() {
-        $idGRUPO = $this->request->param('id');        
-        $grupo = ORM::Factory('Grupo', $idGRUPO)->delete();  
-        $this->redirect('Grupos');
-    }
-
-    public function action_edit() { 
-       $PERSPECTIVAS_idPERSPECTIVA = ORM::get_select('Perspectiva');
-        $idGRUPO = $this->request->param('id');
-        // verificando se o método é post
-        if(HTTP_Request::POST == $this->request->method()){
-            $_POST['idGRUPO'] = $idGRUPO;
-            $projeto = ORM::Factory('Grupo', $idGRUPO);            
-            $projeto -> values($_POST);
-            $projeto -> save();            
-        }         
-        $grupo = ORM::Factory('Grupo',$idGRUPO);      
-        $this->template->content= View::Factory('edit/editGrupos')
-            ->set('grupo', $grupo)
-            ->set('PERSPECTIVAS_idPERSPECTIVA',$PERSPECTIVAS_idPERSPECTIVA);
-    }
-
- */
-
+   
  
 } 

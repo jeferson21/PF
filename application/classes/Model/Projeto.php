@@ -15,6 +15,15 @@ class Model_Projeto extends ORM {
 	    )
 	);
 
+
+	protected $_has_many = array(
+		'importacao' => array(
+  			'model' => 'Importacao',
+  			'foreign_key' => 'PROJETOS_idPROJETO'
+		)
+	);
+
+
   	public function rules() {  #Validação dos campos
 		return array(
 			'NOME_PROJ'=> array ( 
@@ -23,10 +32,9 @@ class Model_Projeto extends ORM {
 				array('max_length', array(':value', 50)) 
 			),
 
-			# Falta fazer a validação e complemento dos campos na edição para DATA #
+			# Falta fazer a validação e preenchimento dos campos na edição para DATA #
 
-
-			'GERENTE'=> array ( 
+			'RESPONSAVEL'=> array ( 
 				array('not_empty'),
 				array('min_length', array(':value', 4)),
 				array('max_length', array(':value', 50)) 

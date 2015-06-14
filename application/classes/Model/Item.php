@@ -11,19 +11,26 @@ class Model_Item extends ORM {
 	        'foreign_key' => 'MAPAS_idME'
 	    ),
 
-	  	'importacoes' => array(
-        	'model' => 'Importacao',
-        	'foreign_key' => 'idIMPORTACAO'
-		),
-	);
+	  	'perspectiva' => array(
+        	'model' => 'Perspectiva',
+        	'foreign_key' => 'PERSPECTIVA_idPERSPECTIVA'
+		  ),
 
-  protected $_has_many = array(
-  		'perspectivas' => array(
-            'model' => 'perspectiva',
-            'through' => 'ITENS_has_PERSPECTIVAS',
-            'foreign_key' => 'ITENS_idITEM',
-            'far_key' => 'PERSPECTIVAS_idPERSPECTIVA'
-        ),
-  	);
+      'grupo' => array(
+        'model' => 'Grupo',
+        'foreign_key' => 'GRUPOS_idGRUPO'
+      ),
+
+      'objetivo' => array(
+        'model' => 'Objetivo',
+        'foreign_key' => 'OBJETIVOS_idOBJETIVO'
+      ),
+
+      'indicador' => array(
+        'model' => 'Indicador',
+        'foreign_key' => 'INDICADORES_idINDICADOR'
+      )
+
+	);
 
 }

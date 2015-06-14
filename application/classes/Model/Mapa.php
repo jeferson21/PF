@@ -3,6 +3,8 @@
 class Model_Mapa extends ORM {
   protected $_primary_key = 'idME'; 
   protected $_desc_column = 'ANO';
+  public $countObjetivos = 0;
+  public $perspectivas = array();
   
   protected $_has_many = array(
   		'itens' => array(
@@ -32,6 +34,39 @@ class Model_Mapa extends ORM {
 			)
 		);
 	}
+
+	public function get_map() {
+		$itens = $this->itens->find_all();
+		$countObjetivos = array();
+		$fullMap = array();		
+		foreach ($itens as $key => $item) {
+			$IdPerspectiva = $item->PERSPECTIVAS_idPERSPECTIVA;
+			$grupo = $item->GRUPOS_idGRUPO;
+			$objetivo = $item->OBJETIVOS_idOBJETIVO;
+			$indicador = $item->INDICADORES_idINDICADOR;
+			$countObjetivos[$objetivo] = $objetivo;
+			if(!isset($fullMap[$IdPerspectiva]))
+				$fullMap[$IdPerspectiva]['perspectiva'] = 
+					ORM::Factory('perspectiva',$IdPerspectiva)->as_array();
+
+			if(!isset($fullMap[$IdPerspectiva]['grupos'][$grupo]))
+				$fullMap[$IdPerspectiva]['grupos'][$grupo] = 
+					ORM::Factory('grupo', $grupo)->as_array();
+
+			if(!isset($fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]))
+				$fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo] = 
+					ORM::Factory('objetivo', $objetivo)->as_array();
+
+			if(!isset($fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]
+					['indicadores'][$indicador]))
+				$fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]
+					['indicadores'][$indicador] = 
+				ORM::Factory('indicador', $indicador)->as_array();
+		}		
+		$this->countObjetivos = count($countObjetivos);		
+
+		return $fullMap;
+	}	
 }
 
 

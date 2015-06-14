@@ -1,15 +1,16 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
    <body>
+    <legend>Objetivos Estratégicos</legend> 
 		<?=form::open('Objetivos/salvar') ?>
 			    Grupo: <?php echo form::select('GRUPOS_idGRUPO',$GRUPOS_idGRUPO); ?> <br><br>	
 		      Descrição: <?=form::input('DESCRICAO_OBJ');
                         if(isset($errors['DESCRICAO_OBJ'])) echo $errors['DESCRICAO_OBJ'];?> <br><br>
 		      Situação: <?=form::select('SITUACAO_OBJ', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
 		    <?=form::submit('btn_submit', 'Salvar') ?>
-		<?=form::close()?>
+		<?=form::close()?><br>
 
-		  <table>
+		  <table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td><b>    Decrição </b></td>
                       <td> <b>   Grupo   </b></td>
@@ -41,5 +42,7 @@
                   </tr>         	   
               <?php } ?>
           </table>
+
+
   	</body>
 </html>

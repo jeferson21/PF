@@ -10,9 +10,9 @@ class Model_Importacao extends ORM {
 	        'foreign_key' => 'INDICADORES_idINDICADOR'
        ),
         
-        'item' => array(
-          'model' => 'Item',
-          'foreign_key' => 'idITENS'
-      ),
+        'projeto' => array(
+          'model' => 'Projeto',
+          'foreign_key' => 'PROJETOS_idPROJETO'
+      )
   );    
 }

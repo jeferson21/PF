@@ -1,26 +1,25 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <html>
    <body>
+    <legend>Mapas</legend>
 		<?=form::open('Mapas/salvar') ?>
-
 			  Missão: <?=form::input('MISSAO'); 
-			     			if(isset($errors['MISSAO'])) echo $errors['MISSAO'];?><br><br>
+			     			         if(isset($errors['MISSAO'])) echo $errors['MISSAO'];?><br><br>
 			  Visão: <?=form::input('VISAO');
-			  				if(isset($errors['VISAO'])) echo $errors['VISAO'];?> <br><br>
+			  				         if(isset($errors['VISAO'])) echo $errors['VISAO'];?> <br><br>
 		    Ano: <?=form::input('ANO');
-		     				if(isset($errors['ANO'])) echo $errors['ANO'];?> <br><br>
+		     				       if(isset($errors['ANO'])) echo $errors['ANO'];?> <br><br>
 		    Situação: <?=form::select('SITUACAO_ME', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
-
 		    <?=form::submit('btn_submit', 'Salvar') ?>
 		<?=form::close()?> 
 
 
- 		 <table>
+ 		 <table class="table table-bordered table-responsive table-hover">
                   <tr>
                       <td>   <b> Missão </b> </td>
                       <td>   <b> Visão  </b> </td>
                       <td>   <b> Ano    </b> </td>
-                      <td>    Situação     </td>
+                      <td>   <b> Situação </b>     </td>
                       <td colspan="2"><b> Opções </b> </td>
                   </tr>
              

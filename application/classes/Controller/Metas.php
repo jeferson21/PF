@@ -53,7 +53,8 @@ class Controller_Metas extends Controller_Template {
             $_POST['idMETA'] = $idMETA;
             $meta = ORM::Factory('Meta', $idMETA);            
             $meta -> values($_POST);
-            $meta -> save();            
+            $meta -> save();
+            $this->redirect('Metas');
         }           
         
         if(!isset($metas[0]))

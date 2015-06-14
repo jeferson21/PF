@@ -8,18 +8,28 @@ class Model_Grupo extends ORM {
   		'objetivo' => array(
   			'model' => 'Objetivo',
   			'foreign_key' => 'GRUPOS_idGRUPO'
-		)
+		  ),
+
+      'item' => array(
+        'model'=>'Item',
+         'foreign_key' => 'GRUPOS_idGRUPO'
+      )
   );
 
   protected $_belongs_to = array(
       'perspectiva' => array(
         'model' => 'Perspectiva',
         'foreign_key' => 'PERSPECTIVAS_idPERSPECTIVA'
-    )
+       ),
+
+      'item' => array(
+        'model'=>'Item',
+         'foreign_key' => 'GRUPOS_idGRUPO'
+       ),
   );
 
 
-  public function rules(){
+  public function rules() {
   	 return array(
   	 	'CATEGORIA'	=> array ( 
 				array('not_empty'),

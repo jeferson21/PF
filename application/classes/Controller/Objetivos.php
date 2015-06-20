@@ -46,6 +46,15 @@ class Controller_Objetivos extends Controller_Template {
                 ->set('errors', $errors);
     }
 
+    public function action_details(){
+      $idOBJETIVO = $this->request->param('id');
+      $objetivo = ORM::Factory('objetivo', $idOBJETIVO);
+      $indicadores = $objetivo->get_ind_details($idOBJETIVO);
+      $this->template->content= View::Factory('templateObjetivosDetails')                
+                ->set('indicadores', $indicadores)
+                ->set('objetivo', $objetivo);             
+    }
+
     public function action_delete() {
         $idOBJETIVO = $this->request->param('id');        
         $objetivo = ORM::Factory('Objetivo', $idOBJETIVO)->delete();  

@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <Newsletter> 
 	<indicadores>
-		<UNIDADE> R$ </UNIDADE>
-		<DATA> 2025-11-05 </DATA>
-		<VALOR> 500 </VALOR>
-		<INDICADORES_idINDICADOR>1</INDICADORES_idINDICADOR>
+		<UNIDADE> % </UNIDADE>
+		<DATA> 2015-11-05 </DATA>
+		<VALOR> 16 </VALOR>
+		<INDICADORES_idINDICADOR>3</INDICADORES_idINDICADOR>
 		<PROJETOS_idPROJETO>2</PROJETOS_idPROJETO>
 	</indicadores>
 </Newsletter>

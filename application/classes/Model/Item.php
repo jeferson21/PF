@@ -26,11 +26,6 @@ class Model_Item extends ORM {
         'foreign_key' => 'OBJETIVOS_idOBJETIVO'
       ),
 
-      'indicador' => array(
-        'model' => 'Indicador',
-        'foreign_key' => 'INDICADORES_idINDICADOR'
-      )
-
 	);
 
 }

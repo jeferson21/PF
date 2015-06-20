@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <Newsletter> 
 	<indicadores>
-		<idTIPOINDICADOR> 001 </idTIPOINDICADOR>
+		<idTIPOINDICADOR> 1 </idTIPOINDICADOR>
 		<UNIDADE> R$ </UNIDADE>
 		<DATA> 2025-11-05 </DATA>
 		<VALOR> 500 </VALOR>

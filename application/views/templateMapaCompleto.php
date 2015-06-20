@@ -1,11 +1,16 @@
 <?php defined('SYSPATH') or die('No direct script access.'); ?>
 <?php 		
 		$staticObj = ORM::Factory('objetivo');
+		
+		echo '<div> Missão: ', $mapaObject->MISSAO ,'</div>';
+		echo '<div> Visão: ', $mapaObject->VISAO ,'</div>';
+
 	    foreach ($mapa as $id => $setPerspectivas) {	    	
 			$setGrupos = $setPerspectivas['grupos'];			
 			$perspectiva = $setPerspectivas['perspectiva'];
-			$setObjetivos = array();		
-			echo "<table class='table table-bordered table-responsive  mapaestrategico'>";
+			$setObjetivos = array();
+
+			echo "<table class='table tabela-Mapa table-bordered'>";
 				echo "<tr>";
 					echo "<th colspan='".$countObjetivos."'>" . $perspectiva['DESCRICAO_PERSP'] . "</th>";
 				echo "</tr>";
@@ -17,8 +22,16 @@
 				echo "</tr>";
 				echo "<tr>";
 				foreach ($setObjetivos as $objetivos) {									
-					foreach ($objetivos as $keyObjetivo => $objetivo) {					
-						echo "<td style = 'background-color:". $staticObj::get_color($objetivo['indicadores'])."'>" . $objetivo['DESCRICAO_OBJ'] . "</td>";
+					foreach ($objetivos as $keyObjetivo => $objetivo) {
+
+					$objetivo_details = Route::get('default')
+                        ->uri(array(
+                          'controller' => 'Objetivos', 'action' => 'details', 'id' => $objetivo['idOBJETIVO']));
+                          
+
+					   echo "<td style = 'background-color:". $staticObj::get_color($objetivo)."'>"
+					   		 . HTML::anchor($objetivo_details, $objetivo['DESCRICAO_OBJ']) . 
+						  "</td>";
 					}
 				}
 				echo "</tr>";

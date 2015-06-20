@@ -6,21 +6,19 @@
     	    Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
           Nome do Projeto: <?=form::input('NOME_PROJ'); if(isset($errors['NOME_PROJ'])) echo $errors['NOME_PROJ']; ?> <br><br>
           
-          Data de Início: <?=form::input('DATA_INI[DIA]'); 
-                              if(isset($errors['DATA_INI[DIA]'])) echo $errors['DATA_INI[DIA]']; ?> /
-                          <?=form::input('DATA_INI[MES]');
-                              if(isset($errors['DATA_INI[MES]'])) echo $errors['DATA_INI[MES]']; ?> /
+          Data de Início: <?=form::input('DATA_INI[DIA]');?>  /
+                          <?=form::input('DATA_INI[MES]');?> /
                           <?=form::input('DATA_INI[ANO]');
-                              if(isset($errors['DATA_INI[ANO]'])) echo $errors['DATA_INI[ANO]']; ?>  <br><br>
+                              if(isset($errors['DATA_INI'])) echo $errors['DATA_INI']; 
+                          ?>  <br><br>
          
-          Data Fim: <?=form::input('DATA_FIM[DIA]'); 
-                        if(isset($errors['DATA_INI'])) echo $errors['DATA_INI']; ?> / 
-                    <?=form::input('DATA_FIM[MES]');
-                        if(isset($errors['DATA_INI'])) echo $errors['DATA_INI'];?> / 
+          Data Fim: <?=form::input('DATA_FIM[DIA]');?>  /
+                    <?=form::input('DATA_FIM[MES]');?> / 
                     <?=form::input('DATA_FIM[ANO]');
-                        if(isset($errors['DATA_INI'])) echo $errors['DATA_INI'];?> <br><br>
+                        if(isset($errors['DATA_FIM'])) echo $errors['DATA_FIM'];
+                    ?> <br><br>
 
-          Gerente: <?=form::input('RESPONSAVEL'); if(isset($errors['RESPONSAVEL'])) echo $errors['RESPONSAVEL']; ?> <br><br>
+          Responsável: <?=form::input('RESPONSAVEL'); if(isset($errors['RESPONSAVEL'])) echo $errors['RESPONSAVEL']; ?> <br><br>
           Situação: <?=form::select('SITUACAO_PROJ', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
         	<?=form::submit('btn_submit', 'Salvar') ?>
     	<?=form::close()?><br>

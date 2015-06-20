@@ -17,12 +17,10 @@ class Controller_Mapas extends Controller_Template {
 
     public function action_exibirMapas() {
         $MAPAS_idME = ORM::get_select('Mapa');
-        
+
         $this->template->content= View::Factory('templateTabelaMapa')
                                       ->set('MAPAS_idME', $MAPAS_idME);   
     }
-
-
 
     public function action_exibir() {
         $this->template->content= View::Factory('templateMapa');
@@ -40,7 +38,8 @@ class Controller_Mapas extends Controller_Template {
         $mapArray = $mapa->get_map();
         $countObjetivos = $mapa->countObjetivos;        
         echo $this->template->content= View::Factory('templateMapaCompleto')
-            ->set('mapa', $mapArray)->set('countObjetivos', $countObjetivos);            
+            ->set('mapa', $mapArray)->set('countObjetivos', $countObjetivos)
+            ->set('mapaObject', $mapa);            
     }    
 
     public function action_salvar() {

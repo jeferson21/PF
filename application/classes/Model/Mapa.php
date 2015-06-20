@@ -43,7 +43,6 @@ class Model_Mapa extends ORM {
 			$IdPerspectiva = $item->PERSPECTIVAS_idPERSPECTIVA;
 			$grupo = $item->GRUPOS_idGRUPO;
 			$objetivo = $item->OBJETIVOS_idOBJETIVO;
-			$indicador = $item->INDICADORES_idINDICADOR;
 			$countObjetivos[$objetivo] = $objetivo;
 			if(!isset($fullMap[$IdPerspectiva]))
 				$fullMap[$IdPerspectiva]['perspectiva'] = 
@@ -55,14 +54,9 @@ class Model_Mapa extends ORM {
 
 			if(!isset($fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]))
 				$fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo] = 
-					ORM::Factory('objetivo', $objetivo)->as_array();
-
-			if(!isset($fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]
-					['indicadores'][$indicador]))
-				$fullMap[$IdPerspectiva]['grupos'][$grupo]['objetivos'][$objetivo]
-					['indicadores'][$indicador] = 
-				ORM::Factory('indicador', $indicador)->as_array();
-		}		
+					ORM::Factory('objetivo', $objetivo)->as_array();	
+		}	
+			
 		$this->countObjetivos = count($countObjetivos);		
 
 		return $fullMap;

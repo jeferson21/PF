@@ -21,13 +21,7 @@ class Model_Indicador extends ORM {
      'importacoes' => array(
         'model' => 'Importacao',
         'foreign_key' => 'INDICADORES_idINDICADOR'
-      ),
-
-      'item' => array(
-        'model'=>'Item',
-         'foreign_key' => 'INDICADORES_idINDICADOR'
-      ),
-
+      )
   );
 
   public function rules(){

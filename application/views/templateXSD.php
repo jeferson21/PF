@@ -2,13 +2,18 @@
 
 <html>
 	<body>
-      <legend> Exportar XSD </legend>
+      <legend> Gerar XSD </legend>
 
 
-         <?php $exportarXSD = Route::get('default')->uri(array(
-                				'controller' => 'Indicadores','action' => 'exportarXSD'));
-         ?>
-         <?= HTML::anchor($exportarXSD, 'Exportar XSD');?>
+         <?=form::open('Indicadores/exportarXSD')?>  		 
+				
+		   A qual Projeto o Indicador estará associado? 
+		   <?=form::select('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);?><br><br>  
+				
+			    <?=form::submit('btn_submit', 'Gerar Arquivo XSD')?>
+		<?=form::close()?><br>
+
+         
                    
 
 	</body>

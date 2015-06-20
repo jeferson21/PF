@@ -181,13 +181,11 @@ optgroup {
 }
 table {
   border-spacing: 0;
-  border-collapse: collapse;
-  
+  border-collapse: collapse;  
 }
 td,
 th {
   padding: 3px;
-  border: 1px gray solid;
 }
 @media print {
   * {
@@ -2126,6 +2124,9 @@ th {
 .table-bordered {
   border: 1px solid #ddd;
 }
+/* 
+ CONFIGURAÇÕES PADRÃO DO BOOTSTRAP 
+
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
@@ -2134,6 +2135,20 @@ th {
 .table-bordered > tfoot > tr > td {
   border: 1px solid #ddd;
 }
+*/
+/* EDITADO POR MIM PARA PERSPECTIVAS FICAR SEM BORDA*/
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th {
+  border: none;
+}
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+/* ATÉ AQUI */
+
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
@@ -2319,7 +2334,7 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 21px;
   line-height: inherit;
   color: #333;
@@ -6240,14 +6255,26 @@ button.close {
 
 /* Meus arquivos CSS, acima só os pre-definidos do bootstrap */
 
+.tabela-Mapa {
+    border-spacing: 10px;
+    border-collapse: separate;
+    border: none;
+}
+
+
+
+.tabela-Mapa tr, 
+  .tabela-Mapa td {
+    text-align: center;
+    border-radius: 10px;
+}
+
 .perspectiva {
    border: 1px #ddd solid;
    border-radius: 4px;
    padding-left: 10px;
    padding-bottom: 5px;
    padding-right: 10px;
-   
-   
 }	
 
 .grupo {
@@ -6265,8 +6292,6 @@ button.close {
    padding-left: 10px;
    padding-bottom: 5px;
    padding-right: 5px;
-
-
 } 
 
 .indicador {
@@ -6275,5 +6300,6 @@ button.close {
   padding-left: 10px;
   padding-bottom: 5px;
   padding-right: 5px;
-
 }
+
+  

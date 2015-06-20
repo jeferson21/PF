@@ -3,11 +3,12 @@
 	
 	<?php 
         #fazer donwload do arquivo
-		#header ("Content-Type: application/octet-stream");
-		#header ("Content-disposition: attachment; filename=xsd.xsd");
+		header ("Content-Type: application/octet-stream");
+		header ("Content-disposition: attachment; filename=Indicadores.xsd");
+		echo $XML;
 
 		#mostrando o codigo do arquivo no navegador
-		echo '<pre>', htmlentities($XML) ,'</pre>';
+		#echo '<pre>', htmlentities($XML) ,'</pre>';
 	?>	
 
 

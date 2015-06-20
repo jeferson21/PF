@@ -12,7 +12,6 @@
    
   <body>
 
-   
     <div class="navbar-header">
         <a href="#" class="navbar-brand"> SG Mapa Estratégico |</a>                
     </div>
@@ -22,23 +21,23 @@
           <li><?=html::anchor('Grupos/index','Grupos')?></li>
           <li><?=html::anchor('Objetivos/index','Objetivos Estratégicos')?></li>
           <li><?=html::anchor('Projetos/index','Projetos')?> </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mapa<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                          <li><?=html::anchor('Mapas/index','Criar Mapa')?></li>
-                          <li><?=html::anchor('Itens/index','Montar Mapa')?></li>
-                          <li><?=html::anchor('Mapas/exibirMapas','Exibir Mapas')?></li>
-                </ul>
-          </li>
            <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                          <li><?=html::anchor('Indicadores/index','Cadastrar Indicador')?></li>
+                          <li><?=html::anchor('Indicadores/index','Gerenciar Indicador')?></li>
                           <li><?=html::anchor('Indicadores/indexXSD','Exportar XSD')?></li>
                           <li><?=html::anchor('Importacoes/index','Importar XML')?></li>
                 </ul>
           </li>
-          <li><?=html::anchor('Metas/index','Metas')?></li>                    
+          <li><?=html::anchor('Metas/index','Metas')?></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mapa<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                          <li><?=html::anchor('Mapas/index','Gerenciar Mapa')?></li>
+                          <li><?=html::anchor('Itens/index','Montar Mapa')?></li>
+                          <li><?=html::anchor('Mapas/exibirMapas','Exibir Mapas')?></li>
+                </ul>
+          </li>                    
         </ul>
                   
             <?php /*   <div class="logout">

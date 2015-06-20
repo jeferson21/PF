@@ -7,17 +7,23 @@
 		            'controller' => 'Projetos', 'action' => 'edit', 'id' => $projeto->idPROJETO));?>    
 		
 	<?=form::open($update_link) ?>
-	 Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO);?> <br><br>
+	    Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO);?> <br><br>
       
-     Nome: <?php echo form::input('NOME_PROJ', $projeto->NOME_PROJ); 
-      		 if(isset($errors['NOME_PROJ'])) echo $errors['NOME_PROJ']; 
-      	   ?> <br><br>
+      Nome: <?php echo form::input('NOME_PROJ', $projeto->NOME_PROJ); 
+      		    if(isset($errors['NOME_PROJ'])) echo $errors['NOME_PROJ']; 
+      	    ?> <br><br>
       
-      Data de Início: <?=form::input('DATA_INI[DIA]');?> / 
-      <?=form::input('DATA_INI[MES]');?> / <?=form::input('DATA_INI[ANO]') ;?> <br><br>
+      Data de Início: <?=form::input('DATA_INI[DIA]', $data['DATA_INI']['DIA']);?> / 
+                      <?=form::input('DATA_INI[MES]', $data['DATA_INI']['MES']);?> /
+                      <?=form::input('DATA_INI[ANO]', $data['DATA_INI']['ANO']);
+                          if(isset($errors['DATA_INI'])) echo $errors['DATA_INI']; 
+                      ?> <br><br>
 
-      Data Fim: <?=form::input('DATA_FIM[DIA]');?> / <?=form::input('DATA_FIM[MES]');?> / 
-      <?=form::input('DATA_FIM[ANO]');?> <br><br>
+      Data Fim: <?=form::input('DATA_FIM[DIA]', $data['DATA_FIM']['DIA']);?> / 
+                <?=form::input('DATA_FIM[MES]', $data['DATA_FIM']['MES']);?> / 
+                <?=form::input('DATA_FIM[ANO]', $data['DATA_FIM']['ANO']);
+                    if(isset($errors['DATA_FIM'])) echo $errors['DATA_FIM']; 
+                ?> <br><br>
 
       Gerente: <?=form::input('RESPONSAVEL', $projeto->RESPONSAVEL);?> <br><br>
 

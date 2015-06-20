@@ -36,7 +36,7 @@
                       <td> 
                           <?php $update_link = Route::get('default')->uri(array(
                                   'controller' => 'Grupos', 'action' => 'edit', 'id' => $grupo->idGRUPO));?>
-                          <?=HTML::anchor($update_link, 'Edit'); ?>
+                          <?=HTML::anchor($update_link, 'Edit');?>
                       </td>   
                   </tr>         	   
               <?php } ?>

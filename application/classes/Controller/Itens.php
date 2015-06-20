@@ -32,25 +32,21 @@ class Controller_Itens extends Controller_Template {
                           ->where('MAPAS_idME', '=', $idME)
                           ->execute(); #deletando os itens redundantes no mapa.
 
-                foreach ($_POST['indicador'] as $indicador) {
+                foreach ($_POST['objetivo'] as $objetivo) {
                                    
                   $item = ORM::Factory('Item');
-                  
-                   echo Debug::vars($_POST);
 
-                  $query = DB::select(array('i.idINDICADOR', 'INDICADORES_idINDICADOR'),
-                                           "i.OBJETIVOS_idOBJETIVO","o.GRUPOS_idGRUPO",
-                                           "g.PERSPECTIVAS_idPERSPECTIVA")
-                  ->from(array('indicadores', 'i'))
-                  ->join(array('objetivos','o'))->on('o.idOBJETIVO', '=', 'i.OBJETIVOS_idOBJETIVO')
+                  $query = DB::select(array('o.idOBJETIVO', 'OBJETIVOS_idOBJETIVO'),
+                                           "o.GRUPOS_idGRUPO","g.PERSPECTIVAS_idPERSPECTIVA")
+                  ->from(array('objetivos', 'o'))  
                   ->join(array('grupos','g'))->on('g.idGRUPO', '=', 'o.GRUPOS_idGRUPO')
                   ->join(array('perspectivas','p'))->on('p.idPERSPECTIVA', '=', 'g.PERSPECTIVAS_idPERSPECTIVA')
-                  ->where('i.idINDICADOR', '=', $indicador)->as_object()->execute();
+                  ->where('o.idOBJETIVO', '=', $objetivo)->as_object()->execute();
 
 
                   foreach ($query as $consulta) {
                          $consulta = (array)$consulta;
-                         echo Debug::vars($consulta);
+                         #echo Debug::vars($consulta);
                        $consulta['MAPAS_idME'] = $idME;    
                        $item -> values($consulta);
                   }             

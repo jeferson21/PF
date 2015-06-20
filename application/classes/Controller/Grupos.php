@@ -4,7 +4,6 @@ class Controller_Grupos extends Controller_Template {
 
 	public $template = 'templateWelcome';
 
-	 
   public function action_getGrupos(){
     $this->auto_render = false;
     $perspectiva = $this->request->POST('perspectiva');

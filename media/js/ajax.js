@@ -41,25 +41,6 @@ $(document).ready(function() {
         }      
     });
 
-    $(document).on("change", "[id^=checkObjetivos]", function() {
-        if($(this).is(":checked")) {
-        	var idObjetivo = $(this).val();
-            
-            $.ajax({
-            	type: 'post',
-            	url: '/PF/index.php/Indicadores/getIndicadores',
-            	data: ({
-            		objetivo: idObjetivo
-            	}),
-            	success: function(data) {
-            		$('#objetivos'+ idObjetivo).html(data);
-            	}
-        	});
-        }else {        	
-        	$('#objetivos'+ $(this).attr('id').replace(/checkObjetivos/, '')).html("");
-        }      
-    });
-
 
     $(document).on("change", "#selectMap", function() {
             var idME = $(this).val();            

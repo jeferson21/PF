@@ -48,6 +48,7 @@ a {
 a:active,
 a:hover {
   outline: 0;
+  text-decoration: none;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -904,21 +905,42 @@ body {
 }
 input,
 button,
-select,
-textarea {
+select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
-a {
-  color: #428bca;
+
+textarea {
+  height: 75px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+ul li a {
+  color: #2a6496; /*Cor padrão do menu*/
+  font-size:14px;
+}
+
+/* Hierarquia do meu menu */
+ul li a:hover,
+ul li a:focus {
+  color: #2a6496;
   text-decoration: none;
 }
+
+a {
+  color: black; /*Cor padrão do menu*/
+  text-decoration: none;
+  font-size:14px;
+}
+
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: black;
   text-decoration: underline;
 }
+
 a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
@@ -6256,17 +6278,54 @@ button.close {
 /* Meus arquivos CSS, acima só os pre-definidos do bootstrap */
 
 .tabela-Mapa {
+    position: relative;
+    top: -70px;
     border-spacing: 10px;
     border-collapse: separate;
     border: none;
 }
 
-
-
 .tabela-Mapa tr, 
   .tabela-Mapa td {
     text-align: center;
     border-radius: 10px;
+}
+
+.missao {
+   background-color: #F4A460;
+   border: 1px black solid;
+   border-radius: 10px;
+   position: relative;
+   top: 20px;
+   margin-left: 0px;
+   width: 440px;
+   height: 120px;
+   padding-top: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-bottom: 10px;
+   text-align: justify;
+   font-size: 15px;
+   font-family: Tahoma;
+}
+
+.visao {
+   background-color: #B0E0E6;
+   border: 1px black solid;
+   border-radius: 10px;
+   position: relative;
+   top: -100px;
+   margin-left: 465px;
+   width: 440px;
+   height: 120px;
+   padding-top: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-bottom: 10px;
+   text-align: justify;
+   font-size: 15px;
+   font-family: Tahoma;
+
 }
 
 .perspectiva {

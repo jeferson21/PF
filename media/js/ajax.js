@@ -60,4 +60,27 @@ $(document).ready(function() {
             $('#fullMap').html("");
         }      
     });
+    
+    $( "#ver_lim" ).blur(function() {
+            var val = parseInt($(this).val());
+            
+            if(!isNaN(val)){
+                val = val + 1;
+                $('#ama_ini').val(val);
+            }else{
+                $('#ama_ini').val('');
+            }      
+    });
+
+    $( "#ama_lim" ).blur(function() {
+            var val = parseInt($(this).val());
+            
+            if(!isNaN(val)){
+                val = val + 1;
+                $('#ver_ini').val(val);
+            }else{
+                $('#ama_ini').val('');
+            }           
+    });
+
 });

@@ -3,9 +3,11 @@
    <body>
     <legend>Mapas</legend>
 		<?=form::open('Mapas/salvar') ?>
-			  Missão: <?=form::input('MISSAO'); 
+        Missão: <br>
+			          <?=form::textarea('MISSAO'); 
 			     			         if(isset($errors['MISSAO'])) echo $errors['MISSAO'];?><br><br>
-			  Visão: <?=form::input('VISAO');
+			  Visão: <br>
+                <?=form::textarea('VISAO');
 			  				         if(isset($errors['VISAO'])) echo $errors['VISAO'];?> <br><br>
 		    Ano: <?=form::input('ANO');
 		     				       if(isset($errors['ANO'])) echo $errors['ANO'];?> <br><br>

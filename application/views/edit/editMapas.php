@@ -7,12 +7,12 @@
 		            'controller' => 'Mapas', 'action' => 'edit', 'id' => $mapa->idME));?>    
 
 		<?=form::open($update_link) ?>
-
-			  Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
-			  Missão: <?=form::input('MISSAO', $mapa->MISSAO); 
+			  Missão: <br>
+			   <?=form::textarea('MISSAO', $mapa->MISSAO); 
 			     			if(isset($errors['MISSAO'])) echo $errors['MISSAO'];
 			  		  ?><br><br>
-			  Visão: <?=form::input('VISAO', $mapa->VISAO);
+			  Visão:  <br>
+			  		 <?=form::textarea('VISAO', $mapa->VISAO);
 			  				if(isset($errors['VISAO'])) echo $errors['VISAO'];
 			  		  ?> <br><br>
 		      Ano: <?=form::input('ANO', $mapa->ANO);

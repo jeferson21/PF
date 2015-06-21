@@ -6,9 +6,9 @@
 
 
          <?=form::open('Indicadores/exportarXSD')?>  		 
-				
-		   A qual Projeto o Indicador estará associado? 
-		   <?=form::select('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);?><br><br>  
+		   Selecione os itens que o Indicador estará associado: <br><br>		
+		   Projeto:  <?=form::select('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);?><br><br>  
+		   Objetivo: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO);?><br><br>  
 				
 			    <?=form::submit('btn_submit', 'Gerar Arquivo XSD')?>
 		<?=form::close()?><br>

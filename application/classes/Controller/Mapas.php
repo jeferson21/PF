@@ -75,17 +75,24 @@ class Controller_Mapas extends Controller_Template {
         $mapa = ORM::Factory('Mapa', $idME); 
         $mapas=ORM::Factory('Mapa')->find_all();
         // verificando se o método é post
-        if(HTTP_Request::POST == $this->request->method()) { 
-            $_POST['idME'] =  $idME;
-            $mapa = ORM::Factory('Mapa',  $idME);            
-            $mapa -> values($_POST);
-            $mapa -> save();
-        }         
+       $errors = array();
+        try {
+            if(HTTP_Request::POST == $this->request->method()){
+                $_POST['idME'] =  $idME;
+                $mapa = ORM::Factory('Mapa',  $idME);            
+                $mapa -> values($_POST);
+                $mapa -> save();
+                $this->redirect('Mapas');
+            }  
+        } catch(ORM_Validation_Exception $e) {
+            $errors = $e->errors('forms');
+        }       
              
         $this->template->content= View::Factory('edit/editMapas')
                                         ->set('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO)
                                         ->set('mapa', $mapa)
-                                        ->bind('mapas', $mapas);
+                                        ->bind('mapas', $mapas)
+                                        ->set('errors', $errors);
     }
 
 } 

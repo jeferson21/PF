@@ -18,13 +18,13 @@ class Model_Mapa extends ORM {
 			'MISSAO'=> array ( 
 				array('not_empty'),
 				array('min_length', array(':value', 8)),
-				array('max_length', array(':value', 400)) 
+				array('max_length', array(':value', 230)) 
 			),
 
 			'VISAO'=> array ( 
 				array('not_empty'),
 				array('min_length', array(':value', 8)),
-				array('max_length', array(':value', 400)) 
+				array('max_length', array(':value', 230)) 
 			),
 
 			'ANO'=> array ( 

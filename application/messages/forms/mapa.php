@@ -5,13 +5,13 @@
  		'MISSAO' => array (
  			'not_empty' => '  * O campo não pode estar vazio',
  		  	'min_length' => ' * O campo deve conter no mínimo 8 dígitos',
- 		 	'max_length' => ' * O campo deve conter no máximo 400 caractéres'
+ 		 	'max_length' => ' * O campo deve conter no máximo 230 caractéres'
  		 ),
 
  		'VISAO' => array ( 
  			'not_empty' => '  * O campo não pode estar vazio', 
  		 	'min_length' => ' * O campo deve conter no mínimo 8 dígitos',
- 		 	'max_length' => ' * O campo deve conter no máximo 400 caractéres'
+ 		 	'max_length' => ' * O campo deve conter no máximo 230 caractéres'
  		 ),
  	
  		'ANO' => array (

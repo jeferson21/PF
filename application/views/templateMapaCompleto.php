@@ -2,15 +2,16 @@
 <?php 		
 		$staticObj = ORM::Factory('objetivo');
 		
-		echo '<div> Missão: ', $mapaObject->MISSAO ,'</div>';
-		echo '<div> Visão: ', $mapaObject->VISAO ,'</div>';
-
+		echo '<div class="missao"> <b>Missão</b>: ', $mapaObject->MISSAO ,'</div>';
+		echo '<div class="visao"> <b>Visão de Futuro</b>: ', $mapaObject->VISAO ,'</div>';
+		
 	    foreach ($mapa as $id => $setPerspectivas) {	    	
 			$setGrupos = $setPerspectivas['grupos'];			
 			$perspectiva = $setPerspectivas['perspectiva'];
 			$setObjetivos = array();
 
 			echo "<table class='table tabela-Mapa table-bordered'>";
+
 				echo "<tr>";
 					echo "<th colspan='".$countObjetivos."'>" . $perspectiva['DESCRICAO_PERSP'] . "</th>";
 				echo "</tr>";

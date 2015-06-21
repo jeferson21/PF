@@ -4,9 +4,6 @@ class Controller_Indicadores extends Controller_Template {
 
 	public $template = 'templateWelcome';
 
- 
-
-
 	public function action_index() {        
        $OBJETIVOS_idOBJETIVO = ORM::get_select('Objetivo');                   
        $INDICADORES_idINDICADOR = ORM::get_select('Indicador');                                    
@@ -77,8 +74,10 @@ class Controller_Indicadores extends Controller_Template {
 
     public function action_indexXSD() {
       $PROJETOS_idPROJETO = ORM::get_select('Projeto');
+      $OBJETIVOS_idOBJETIVO= ORM::get_select('Objetivo');
       $this->template->content= View::Factory('templateXSD')
-                                     ->set('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);
+                                     ->set('PROJETOS_idPROJETO',$PROJETOS_idPROJETO)
+                                     ->set('OBJETIVOS_idOBJETIVO', $OBJETIVOS_idOBJETIVO);
     }
 
     public function action_exportarXSD() {   
@@ -113,41 +112,7 @@ class Controller_Indicadores extends Controller_Template {
                     $elementFilho->addAttribute('type', 'xs:float');
                     $elementFilho->addAttribute('name', 'VALOR'); 
 
-                $indicadores = ORM::Factory('indicador')
-                               ->where('SITUACAO_IND', '=', '0')
-                               ->find_all();                              
-
-                foreach ($indicadores as $indicador) {
-                    
-                    $elementFilhoIndicador = $sequence->addChild('xmlns:xs:element');
-                    $elementFilhoIndicador->addAttribute('name', 'TIPO_IND');
-                    $elementFilhoIndicador->addAttribute('type', 'xs:string');
-                    $elementFilhoIndicador->addAttribute('value', $indicador->TIPO_IND); 
-
-                    $elementFilhoDoIndicador = $elementFilhoIndicador->addChild('xmlns:xs:element');
-                    $elementFilhoDoIndicador->addAttribute('name', 'INDICADORES_idINDICADOR');
-                    $elementFilhoDoIndicador->addAttribute('type', 'xs:int');
-                    $elementFilhoDoIndicador->addAttribute('value', $indicador->idINDICADOR);
-
-
-                    $elementFilhoDoIndicador = $elementFilhoIndicador->addChild('xmlns:xs:element');
-                    $elementFilhoDoIndicador->addAttribute('name', 'OBJETIVO ESTRAT.');
-                    $elementFilhoDoIndicador->addAttribute('type', 'xs:int');
-                    $elementFilhoDoIndicador->addAttribute('value', $indicador->objetivo->DESCRICAO_OBJ);
-                }
-                /*
-
-                $objetivos = ORM::Factory('objetivo')
-                               ->where('SITUACAO_OBJ', '=', '0')
-                               ->find_all();                              
-
-                foreach ($objetivos as $objetivo) {
-                    
-                }
-                */
-
                 $projeto = $_POST['PROJETOS_idPROJETO']; #PEGANDO ID DO PROJ PASSADO NO FORM
-
                 #PEGANDO NOME DO PROJETO ESCOLHIDO    
                 $projetos = ORM::Factory('Projeto')
                                ->where('idPROJETO','=', $projeto)
@@ -159,14 +124,39 @@ class Controller_Indicadores extends Controller_Template {
                     $elementFilhoProj->addAttribute('type', 'xs:string');
                     $elementFilhoProj->addAttribute('value', $nomeproj->NOME_PROJ);
                 }
-
                 #PEGANDO ID DO PROJETO ESCOLHIDO
                     $elementFilhoDoProj = $elementFilhoProj->addChild('xmlns:xs:element');
                     $elementFilhoDoProj->addAttribute('name', 'PROJETOS_idPROJETO');
                     $elementFilhoDoProj->addAttribute('type', 'xs:string');
-                    $elementFilhoDoProj->addAttribute('value', $projeto);                                      
+                    $elementFilhoDoProj->addAttribute('value', $projeto);      
+
+                $idOBJETIVO = $_POST['OBJETIVOS_idOBJETIVO'];
+
+                $indicadores = ORM::Factory('indicador')
+                               ->where('SITUACAO_IND', '=', '0')
+                               ->and_where('OBJETIVOS_idOBJETIVO', '=', $idOBJETIVO)
+                               ->find_all();                              
+                    
+                foreach ($indicadores as $indicador) {
+                    
+                    $elementFilhoObj = $sequence->addChild('xmlns:xs:element');
+                    $elementFilhoObj->addAttribute('name', 'OBJETIVO ESTRAT.');
+                    $elementFilhoObj->addAttribute('type', 'xs:int');
+                    $elementFilhoObj->addAttribute('value', $indicador->objetivo->DESCRICAO_OBJ);
+
+                    $filhoIndicador = $elementFilhoObj->addChild('xmlns:xs:element');
+                    $filhoIndicador->addAttribute('name', 'TIPO_IND');
+                    $filhoIndicador->addAttribute('type', 'xs:string');
+                    $filhoIndicador->addAttribute('value', $indicador->TIPO_IND); 
+
+                    $filhoDoIndicador = $filhoIndicador->addChild('xmlns:xs:element');
+                    $filhoDoIndicador->addAttribute('name', 'INDICADORES_idINDICADOR');
+                    $filhoDoIndicador->addAttribute('type', 'xs:int');
+                    $filhoDoIndicador->addAttribute('value', $indicador->idINDICADOR);
+    
+                }                                     
               
-      }//End if
+      } //End if
 
             $dom = dom_import_simplexml($schemaXML)->ownerDocument;
             $dom->formatOutput = true;

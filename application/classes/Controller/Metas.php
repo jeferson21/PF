@@ -5,7 +5,9 @@ class Controller_Metas extends Controller_Template {
 	public $template = 'templateWelcome';
 
 	public function action_index() { 
-        $INDICADORES_idINDICADOR = ORM::get_select('Indicador');
+        $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();
+
+        
         $metas=ORM::Factory('Meta')->find_all();
         
         if(!isset($metas[0])) 
@@ -16,7 +18,8 @@ class Controller_Metas extends Controller_Template {
     }
 
   public function action_salvar() {     
-       $INDICADORES_idINDICADOR = ORM::get_select('Indicador');
+       $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();
+       
        $metas=ORM::Factory('Meta')->find_all();
 
        $errors = array();    
@@ -44,7 +47,7 @@ class Controller_Metas extends Controller_Template {
     }
 
     public function action_edit() {  
-        $INDICADORES_idINDICADOR = ORM::get_select('Indicador');
+        $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();
         $idMETA = $this->request->param('id');
         $meta= ORM::Factory('Meta',$idMETA);
         $metas=ORM::Factory('Meta')->find_all();

@@ -26,19 +26,16 @@ class ORM extends Kohana_ORM {
 	 	# Como se fosse:
 	 	# $Variavel=ORM::Factory('Model')->find_all()->as_array('primary_key' ,'desc_column');
 	}
-
+	
 	public static function get_select_ind_obj(){
 		$select_array = array();
 		$indicador = ORM::Factory('indicador')->find_all();
 		foreach ($indicador as $value) {
-			$desc_obj = ORM::Factory('objetivo', $value->idINDICADOR )->DESCRICAO_OBJ;
-			$select_array[$value->idINDICADOR ] = $value->TIPO_IND . ' - ' . $desc_obj;
+			$desc_obj = ORM::Factory('objetivo', $value->idINDICADOR)->DESCRICAO_OBJ;
+			$select_array[$value->idINDICADOR] = $value->TIPO_IND . ' - ' . $desc_obj;
 		}
-				
+		arsort($select_array);	
 		return $select_array;
-
-	 	# Como se fosse:
-	 	# $Variavel=ORM::Factory('Model')->find_all()->as_array('primary_key' ,'desc_column');
 	}
 	
 }

@@ -14,6 +14,13 @@ class Helper_XML {
                 $delete = DB::delete('importacoes')
                          ->where('INDICADORES_idINDICADOR', '=', $idINDICADOR)
                          ->execute();
+        
+            $importacao_array['VALOR'] = array_sum($importacao_array['VALOR']) / count($importacao_array['VALOR']);            
+            $dates = $importacao_array['DATA'];
+            $dates = array_combine($dates, array_map('strtotime',$dates));
+            arsort($dates); #ordena de forma decrescente 
+            reset($dates); #volta pro top array
+            $importacao_array['DATA'] = key($dates);
             $importacao->values($importacao_array);
             $importacao->save();                    
         }        

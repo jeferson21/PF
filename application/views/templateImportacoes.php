@@ -14,9 +14,10 @@
                   <tr>
                       <td><b> Indicador </b></td>
                       <td><b> Projeto </b></td>
+                      <td><b> Obj. Estratégico </b></td>
                       <td><b> Unidade   </b></td>
                       <td><b> Data      </b></td>
-                      <td><b> Valor     </b></td>
+                      <td><b> Média Valores     </b></td>
                   </tr>
              
               <?php 
@@ -24,6 +25,7 @@
                   <tr>
                      <td> <?=$impotacao->indicador->TIPO_IND ?>  </td>
                      <td> <?=$impotacao->projeto->NOME_PROJ ?>    </td>
+                     <td> <?=$impotacao->projeto->objetivo->DESCRICAO_OBJ ?>    </td>
                      <td> <?=$impotacao->UNIDADE ?>    </td>
                      <td> <?=$impotacao->DATA ?>  </td>
                      <td> <?=$impotacao->VALOR ?> </td>

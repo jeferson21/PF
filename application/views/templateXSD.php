@@ -1,4 +1,6 @@
-<?php defined('SYSPATH') or die('No direct script access.');?>
+<?php defined('SYSPATH') or die('No direct script access.');
+ #<?=form::select('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);
+?>
 
 <html>
 	<body>
@@ -6,8 +8,8 @@
 
 
          <?=form::open('Indicadores/exportarXSD')?>  		 
-		   Selecione os itens que o Indicador estará associado: <br><br>		
-		   Projeto:  <?=form::select('PROJETOS_idPROJETO',$PROJETOS_idPROJETO);?><br><br>  
+		   Selecione O Objetivo Estratégico que o Indicador estará associado: <br><br>		
+		   
 		   Objetivo: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO);?><br><br>  
 				
 			    <?=form::submit('btn_submit', 'Gerar Arquivo XSD')?>

@@ -31,12 +31,14 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Objetivos', 'action' => 'delete', 'id' => $objetivo->idOBJETIVO));?>
+                          'controller' => 'Objetivos', 'action' => 'delete', 'id' => $objetivo->idOBJETIVO));
+                          echo HTML::image('media/img/delete.png', array('alt' => '')); ?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Objetivos', 'action' => 'edit', 'id' => $objetivo->idOBJETIVO));?>
+                          'controller' => 'Objetivos', 'action' => 'edit', 'id' => $objetivo->idOBJETIVO));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>         	   

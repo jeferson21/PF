@@ -4,12 +4,11 @@
         <title> SG Mapa Estratégico </title>
   </head>
 
-    <?php echo html::style("media/css/bootstrap.css"); ?>
-    <?php echo html::script("media/js/jquery.min.js"); ?>
+    <?php echo html::style("media/css/bootstrap.css");?>
+    <?php echo html::script("media/js/jquery.min.js");?>
     <?php echo html::script("media/js/bootstrap.min.js");?>
     <?php echo html::script("media/js/ajax.js");?>
        
-   
   <body>
 
     <div class="navbar-header">
@@ -25,7 +24,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                           <li><?=html::anchor('Indicadores/index','Gerenciar Indicador')?></li>
-                          <li><?=html::anchor('Indicadores/indexXSD','Exportar XSD')?></li>
+                          <li><?=html::anchor('Indicadores/indexXSD','Gerar XSD')?></li>
                           <li><?=html::anchor('Importacoes/index','Importar XML')?></li>
                 </ul>
           </li>
@@ -38,20 +37,8 @@
                           <li><?=html::anchor('Mapas/exibirMapas','Exibir Mapas')?></li>
                 </ul>
           </li>                    
-        </ul>
-                  
-            <?php /*   <div class="logout">
-                   <?php 
-                      $logout = Route::get('logout')->uri(
-                          array(
-                             'controller' => 'Users',
-                             'action' => 'logout')
-                          );
-                    ?>
-                      <?=HTML::anchor($logout, 'Logout'); ?>
-                </div>
-            */ ?>
-            
+        </ul>        
+          
            <div class="container"> 
                     <div class="container-fluid">
                       <br><br>  <?=$content?> <br><br>

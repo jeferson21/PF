@@ -213,3 +213,15 @@
 #10 C:\xampp\htdocs\PF\system\classes\Kohana\Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #11 C:\xampp\htdocs\PF\index.php(118): Kohana_Request->execute()
 #12 {main} in C:\xampp\htdocs\PF\system\classes\Kohana\HTML.php:106
+2015-06-20 20:55:12 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'echo' (T_ECHO) ~ APPPATH\views\templateMapaCompleto.php [ 6 ] in file:line
+2015-06-20 20:55:12 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-06-20 20:55:14 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'echo' (T_ECHO) ~ APPPATH\views\templateMapaCompleto.php [ 6 ] in file:line
+2015-06-20 20:55:14 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-06-20 20:55:15 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'echo' (T_ECHO) ~ APPPATH\views\templateMapaCompleto.php [ 6 ] in file:line
+2015-06-20 20:55:15 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-06-20 20:55:18 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'echo' (T_ECHO) ~ APPPATH\views\templateMapaCompleto.php [ 6 ] in file:line
+2015-06-20 20:55:18 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

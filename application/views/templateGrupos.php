@@ -31,11 +31,13 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Grupos', 'action' => 'delete', 'id' => $grupo->idGRUPO));?>
+                          'controller' => 'Grupos', 'action' => 'delete', 'id' => $grupo->idGRUPO));
+                          echo HTML::image('media/img/delete.png', array('alt' => '')); ?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')->uri(array(
-                                  'controller' => 'Grupos', 'action' => 'edit', 'id' => $grupo->idGRUPO));?>
+                                  'controller' => 'Grupos', 'action' => 'edit', 'id' => $grupo->idGRUPO));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?=HTML::anchor($update_link, 'Edit');?>
                       </td>   
                   </tr>         	   

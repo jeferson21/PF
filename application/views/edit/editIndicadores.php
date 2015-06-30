@@ -9,7 +9,8 @@
                'controller' => 'Indicadores', 'action' => 'edit', 'id' => $indicador->idINDICADOR));?> 
 			<?=form::open($update_link) ?>
 		  		 
-			Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
+			Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO,
+                              $indicador->OBJETIVOS_idOBJETIVO); ?> <br><br>  
 			Descrição: <?=form::input('TIPO_IND', $indicador->TIPO_IND);
 				  				if(isset($errors['TIPO_IND'])) echo $errors['TIPO_IND']; 
 				  			 ?> <br><br>     
@@ -52,7 +53,7 @@
               <?php } ?>
           </table>
 
-          <?php
+            <?php
                $link = Route::get('default')
                       ->uri(array('controller' => 'Indicadores', 'action' => 'index'));
             ?> 

@@ -9,11 +9,12 @@ class Controller_Grupos extends Controller_Template {
     $perspectiva = $this->request->POST('perspectiva');
     $grupos = ORM::Factory('Perspectiva', $perspectiva)->grupo->find_all(); 
 
+    echo "<br>"."<b>Grupos:</b>"."<br>"."<br>";
     foreach ($grupos as $key => $grupo) {
       echo form::checkbox('grupo[]', $grupo->idGRUPO, false, 
         array('id' => 'checkGrupos'.$grupo->idGRUPO)) . " " . $grupo->CATEGORIA . "<br><br>";
 
-        echo "<div class='grupo' id='grupos{$grupo->idGRUPO}'>"."</div>";
+        echo "<div class='grupo' id='grupos{$grupo->idGRUPO}'>"."</div>"."<br>";
     }
   }
 

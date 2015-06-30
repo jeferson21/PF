@@ -1447,7 +1447,7 @@ pre code {
   /* Editado por mim */
       position: relative;
       top: 5px;
-      border: 1px solid #ddd;      
+      border: 1px solid #ddd;            
       
   /**/
   padding-right: 15px;
@@ -3636,6 +3636,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+
 }
 .nav > li {
   position: relative;
@@ -3645,6 +3646,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+
+  /*Editado por mim */
+  margin-left: 10px;
+  font-size: 18px;
+
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3679,16 +3685,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs {
   border-bottom: 1px solid #ddd;
   /* editado por mim */
-  
   position: relative;
   top: 0px;
-  height: 42px;
-
+  height: 48px;
 }
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
-  
 }
 .nav-tabs > li > a {
   margin-right: 2px;
@@ -6297,7 +6300,7 @@ button.close {
    border-radius: 10px;
    position: relative;
    top: 20px;
-   margin-left: 0px;
+   margin-left: 5%;
    width: 440px;
    height: 120px;
    padding-top: 10px;
@@ -6315,7 +6318,7 @@ button.close {
    border-radius: 10px;
    position: relative;
    top: -100px;
-   margin-left: 465px;
+   margin-left: 530px;
    width: 440px;
    height: 120px;
    padding-top: 10px;

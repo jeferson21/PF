@@ -2,7 +2,7 @@
 
 	
 	<?php 
-        #fazer donwload do arquivo
+        #fazer donwload do arquivo XSD
 		header ("Content-Type: application/octet-stream");
 		header ("Content-disposition: attachment; filename=Indicadores.xsd");
 		echo $XML;

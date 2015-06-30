@@ -41,27 +41,31 @@ class Model_Objetivo extends ORM {
 
   public static function get_ind_details($id){
       $query = DB::select(array('i.idINDICADOR', 'INDICADORES_idINDICADOR'),
-                  'im.VALOR','m.VERDE_INI', 'm.VERDE_LIM',
-                  'i.TIPO_IND',
-                  'm.AMARELO_LIM','m.VERMELHO_LIM')
+                  'im.VALOR','m.VERDE_INI', 'm.VERDE_LIM','i.TIPO_IND',
+                  'm.AMARELO_LIM','m.VERMELHO_LIM', 'p.NOME_PROJ','p.RESPONSAVEL')
           ->from(array('indicadores', 'i'))  
           ->join(array('importacoes','im'))
               ->on('i.idINDICADOR','=', 'im.INDICADORES_idINDICADOR')
           ->join(array('metas','m'))
-              ->on('i.idINDICADOR','=', 'm.INDICADORES_idINDICADOR')
+              ->on('i.idINDICADOR','=', 'm.INDICADORES_idINDICADOR') 
+          ->join(array('projetos','p'))
+              ->on('im.PROJETOS_idPROJETO','=', 'p.idPROJETO')    
           ->where('i.OBJETIVOS_idOBJETIVO','=', $id)
               ->as_object()->execute();
       return $query;
   }
-
-  public static function get_color($objetivos){
   
+  public static function get_color($objetivos){
       $indicadores = Model_Objetivo::get_ind_details($objetivos['idOBJETIVO']);
 
-      $color = 1;
+      $color = -1;            
+      if(count($indicadores) > 0)
+        $color = 1;
       foreach ($indicadores as $indicador) {
             $color = $color * Model_Objetivo::get_indicador_color($indicador);
       }
+      if($color == -1)
+        return '#D3D3D3';
       if($color == 1)
         return '#00FF00';
       if($color > 1)
@@ -69,6 +73,7 @@ class Model_Objetivo extends ORM {
       if($color == 0)
         return 'FF0000';
   }
+  
 
   public static function get_indicador_color($indicador){
       $color = 1;
@@ -80,6 +85,7 @@ class Model_Objetivo extends ORM {
       }
       return $color;
   }
+
 
   public static function get_indicador_color_image($indicador){
     $color = Model_Objetivo::get_indicador_color($indicador);

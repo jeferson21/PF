@@ -5,17 +5,16 @@ class Controller_Metas extends Controller_Template {
 	public $template = 'templateWelcome';
 
 	public function action_index() { 
-        $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();
-
+      $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();
         
-        $metas=ORM::Factory('Meta')->find_all();
+      $metas=ORM::Factory('Meta')->find_all();
         
-        if(!isset($metas[0])) 
-          $metas=array();
+      if(!isset($metas[0])) 
+        $metas=array();
           $this->template->content = View::Factory('templateMetas')
                                        ->set('INDICADORES_idINDICADOR', $INDICADORES_idINDICADOR)
                                        ->bind('metas', $metas); 
-    }
+  }
 
   public function action_salvar() {     
        $INDICADORES_idINDICADOR = ORM::get_select_ind_obj();

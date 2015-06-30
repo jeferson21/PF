@@ -21,7 +21,7 @@ class Controller_Importacoes extends Controller_Template {
         if(HTTP_Request::POST == $this->request->method() && isset($_POST['arquivoXML'])) 
         {
           Helper_XML::xml_import($_POST['arquivoXML']); 
-           $this->redirect('importacoes');                        
+          $this->redirect('importacoes');                        
         } 
         
           $this->template->content=View::Factory('templateImportacoes')

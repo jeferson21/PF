@@ -15,7 +15,7 @@ $(document).ready(function() {
             		$('#perspectivas'+ idPerspectiva).html(data);
             	}
         	});
-        }else{        	
+        } else{        	
         	$('#perspectivas'+ $(this).attr('id').replace(/checkPerspectivas/, '')).html("");
         }
               

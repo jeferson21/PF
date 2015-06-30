@@ -36,12 +36,14 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Indicadores', 'action' => 'delete', 'id' => $indicador->idINDICADOR));?>
+                          'controller' => 'Indicadores', 'action' => 'delete', 'id' => $indicador->idINDICADOR));
+                          echo HTML::image('media/img/delete.png', array('alt' => '')); ?>                          
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Indicadores', 'action' => 'edit', 'id' => $indicador->idINDICADOR));?>
+                          'controller' => 'Indicadores', 'action' => 'edit', 'id' => $indicador->idINDICADOR));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>         	   

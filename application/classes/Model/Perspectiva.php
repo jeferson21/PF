@@ -16,10 +16,6 @@ class Model_Perspectiva extends ORM {
       ),
   );
 
-  protected $_belongs_to = array(
-
-  );
-
   public function rules() {   #Validação dos campos
 		return array(
 			'DESCRICAO_PERSP' => array (

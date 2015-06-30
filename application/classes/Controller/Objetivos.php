@@ -8,6 +8,8 @@ class Controller_Objetivos extends Controller_Template {
     $this->auto_render = false;
     $grupo = $this->request->POST('grupo');
     $objetivos = ORM::Factory('Grupo', $grupo)->objetivo->find_all(); 
+
+    echo "<br>"."<b>Objetivos Estratégicos:</b>"."<br>"."<br>";
     foreach ($objetivos as $key => $objetivo) {
       echo form::checkbox('objetivo[]', $objetivo->idOBJETIVO, false, 
         array('id' => 'checkObjetivos'.$objetivo->idOBJETIVO)) . " " . $objetivo->DESCRICAO_OBJ . "<br><br>";
@@ -52,7 +54,8 @@ class Controller_Objetivos extends Controller_Template {
       $indicadores = $objetivo->get_ind_details($idOBJETIVO);
       $this->template->content= View::Factory('templateObjetivosDetails')                
                 ->set('indicadores', $indicadores)
-                ->set('objetivo', $objetivo);             
+                ->set('objetivo', $objetivo);
+                           
     }
 
     public function action_delete() {

@@ -7,7 +7,8 @@
 		            'controller' => 'Objetivos', 'action' => 'edit', 'id' => $objetivo->idOBJETIVO));?>    
 		
 		<?=form::open($update_link) ?>
-		  Grupo: <?php echo form::select('GRUPOS_idGRUPO', $GRUPOS_idGRUPO); ?> <br><br>	
+		  Grupo: <?php echo form::select('GRUPOS_idGRUPO', $GRUPOS_idGRUPO,
+        $objetivo->GRUPOS_idGRUPO); ?> <br><br>	
 		  Descrição: <?=form::input('DESCRICAO_OBJ', $objetivo->DESCRICAO_OBJ);?> <br><br>
 	      Situação: <?=form::select('SITUACAO_OBJ', array('0'=>'Ativo','1'=>'Inativo'), $objetivo->SITUACAO_OBJ);?><br><br>     
 	      <?=form::submit('btn_submit', 'Salvar') ?>
@@ -34,12 +35,14 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Objetivos', 'action' => 'delete', 'id' => $objetivo->idOBJETIVO));?>
+                          'controller' => 'Objetivos', 'action' => 'delete', 'id' => $objetivo->idOBJETIVO));
+                          echo HTML::image('media/img/delete.png', array('alt' => '')); ?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Objetivos', 'action' => 'edit', 'id' => $objetivo->idOBJETIVO));?>
+                          'controller' => 'Objetivos', 'action' => 'edit', 'id' => $objetivo->idOBJETIVO));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>         	   

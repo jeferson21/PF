@@ -7,7 +7,8 @@
 		            'controller' => 'Metas', 'action' => 'edit', 'id' => $meta->idMETA));?>    
 		
 	   <?=form::open($update_link) ?>  
-	   	 Indicador: <?php echo form::select('INDICADORES_idINDICADOR',$INDICADORES_idINDICADOR); ?> <br><br>  
+	   	 Indicador: <?php echo form::select('INDICADORES_idINDICADOR',$INDICADORES_idINDICADOR,
+                   $meta->INDICADORES_idINDICADOR ); ?> <br><br>  
               
        Descrição: <?=form::input('DESCRICAO_MET', $meta->DESCRICAO_MET); 
                           if(isset($errors['DESCRICAO_MET'])) echo $errors['DESCRICAO_MET'];
@@ -16,7 +17,7 @@
                       if(isset($errors['ANO'])) echo $errors['ANO'];
                    ?><br><br>
             Unidade: <?=form::select('UNIDADE', array('0'=>'%','1'=>'Num', '2'=>'R$'),
-                             $meta->SITUACAO_MET);?><br><br>
+                             $meta->UNIDADE);?><br><br>
 
             Verde:  [ : <?=form::input('VERDE_INI', $meta->VERDE_INI); 
                               if(isset($errors['VERDE_INI'])) echo $errors['VERDE_INI'];?>
@@ -89,12 +90,14 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Metas', 'action' => 'delete', 'id' => $meta->idMETA));?>
+                          'controller' => 'Metas', 'action' => 'delete', 'id' => $meta->idMETA));
+                          echo HTML::image('media/img/delete.png', array('alt' => ''));?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Metas', 'action' => 'edit', 'id' => $meta->idMETA));?>
+                          'controller' => 'Metas', 'action' => 'edit', 'id' => $meta->idMETA));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>              

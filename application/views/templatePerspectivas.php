@@ -44,14 +44,16 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Perspectivas', 'action' => 'delete', 'id' => $perspectiva->idPERSPECTIVA));?>
+                          'controller' => 'Perspectivas', 'action' => 'delete', 'id' => $perspectiva->idPERSPECTIVA));
+                           echo HTML::image('media/img/delete.png', array('alt' => '')); ?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
 
                           <?php $update_link = Route::get('default')
                                ->uri(array(
-                               'controller' => 'Perspectivas', 'action' => 'edit', 'id' => $perspectiva->idPERSPECTIVA));?>
-                          <?=HTML::anchor($update_link,'Edit');?>
+                               'controller' => 'Perspectivas', 'action' => 'edit', 'id' => $perspectiva->idPERSPECTIVA));
+                            echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
+                            <?=HTML::anchor($update_link,'Edit');?>
                       </td>   
                     </tr>         	   
               <?php } ?>

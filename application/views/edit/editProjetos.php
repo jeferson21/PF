@@ -6,8 +6,9 @@
 		          ->uri(array(
 		            'controller' => 'Projetos', 'action' => 'edit', 'id' => $projeto->idPROJETO));?>    
 		
-	<?=form::open($update_link) ?>
-	    Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO);?> <br><br>
+	<?=form::open($update_link)?>
+	    Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO,
+                              $projeto->OBJETIVOS_idOBJETIVO);?> <br><br>
       
       Nome: <?php echo form::input('NOME_PROJ', $projeto->NOME_PROJ); 
       		    if(isset($errors['NOME_PROJ'])) echo $errors['NOME_PROJ']; 
@@ -58,12 +59,14 @@
                      <td> 
                         <?php $delete_link = Route::get('default')
                         ->uri(array(
-                          'controller' => 'Projetos', 'action' => 'delete', 'id' => $projeto->idPROJETO));?>
+                          'controller' => 'Projetos', 'action' => 'delete', 'id' => $projeto->idPROJETO));
+                          echo HTML::image('media/img/delete.png', array('alt' => '')); ?>
                           <?= HTML::anchor($delete_link, 'Delete'); ?>
                       <td> 
                           <?php $update_link = Route::get('default')
                           ->uri(array(
-                          'controller' => 'Projetos', 'action' => 'edit', 'id' => $projeto->idPROJETO));?>
+                          'controller' => 'Projetos', 'action' => 'edit', 'id' => $projeto->idPROJETO));
+                          echo HTML::image('media/img/edit.png', array('alt' => '')); ?>
                           <?= HTML::anchor($update_link, 'Edit'); ?>
                       </td>   
                   </tr>              

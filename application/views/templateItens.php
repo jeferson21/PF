@@ -13,13 +13,9 @@
                         array('id' => 'checkPerspectivas'.$id)) . " " . $desc . "<br><br>";
             echo "<div class='perspectiva' id='perspectivas{$id}'>"."</div>"."<br>";
           }
-          
       ?>         	  
 		  <?=form::submit('btn_submit', 'Salvar') ?>
 		<?=form::close()?><br> 
-
-
- 		
-             
+         
   	</body>
 </html>

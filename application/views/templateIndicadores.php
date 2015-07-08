@@ -7,10 +7,10 @@
 			<?=form::open('Indicadores/salvar') ?>
 		  		 
 				Objetivo Estratégico: <?=form::select('OBJETIVOS_idOBJETIVO',$OBJETIVOS_idOBJETIVO); ?> <br><br>  
-				Tipo: <?=form::input('TIPO_IND');
+				Descrição: <?=form::input('TIPO_IND');
 				  				if(isset($errors['TIPO_IND'])) echo $errors['TIPO_IND']; 
 				  			 ?> <br><br>     
-			    Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
+			 Situação: <?=form::select('SITUACAO_IND', array('0'=>'Ativo','1'=>'Inativo'));?><br><br>
 
 			    <?=form::submit('btn_submit', 'Salvar') ?>
 			<?=form::close()?><br>

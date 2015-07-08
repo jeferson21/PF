@@ -8,20 +8,6 @@ class Controller_Welcome extends Controller_Template { /* Controller_Template é
         $this->template->content= View::Factory('templateWelcome');
 	}
 	
-	
-	/*	public function action_login() {
-			$usuario = ORM::Factory('usuario');
-			$usuario->username="admin";
-			$usuario->password="admin";
-			$usuario->save();
-
-			if(Auth::instance()->login("admin", "admin")) {
-					$this->redirect(route::home());
-			} else {
-				  echo "O login falhou :/ ";
-			}
-		}
-	*/ 
 
 } // End Welcome
 

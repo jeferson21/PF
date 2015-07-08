@@ -31,10 +31,10 @@ class ORM extends Kohana_ORM {
 		$select_array = array();
 		$indicador = ORM::Factory('indicador')->find_all();
 		foreach ($indicador as $value) {
-			$desc_obj = ORM::Factory('objetivo', $value->idINDICADOR)->DESCRICAO_OBJ;
+			$desc_obj = ORM::Factory('indicador', $value->idINDICADOR)->objetivo->DESCRICAO_OBJ;
 			$select_array[$value->idINDICADOR] = $value->TIPO_IND . ' - ' . $desc_obj;
 		}
-		arsort($select_array);	
+		#arsort($select_array);	
 		return $select_array;
 	}
 	

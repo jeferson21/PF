@@ -105,10 +105,6 @@ class Controller_Indicadores extends Controller_Template {
                     $elementFilho->addAttribute('name', 'DATA');
                     
                     $elementFilho = $sequence->addChild('xmlns:xs:element');
-                    $elementFilho->addAttribute('type', 'xs:string');
-                    $elementFilho->addAttribute('name', 'UNIDADE');
-                    
-                    $elementFilho = $sequence->addChild('xmlns:xs:element');
                     $elementFilho->addAttribute('type', 'xs:float');
                     $elementFilho->addAttribute('name', 'VALOR'); 
                 

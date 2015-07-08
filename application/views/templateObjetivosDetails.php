@@ -7,8 +7,9 @@
             <td><b>Projeto</b></td>
             <td><b>Responsável</b></td>
             <td><b>Indicador</b></td>
-            <td><b>Situação</b></td>
+            <td><b>Estado</b></td>
             <td><b>Média dos Valores</b></td>
+            <td><b>Meta</b></td>
             <td><b>Verde</b></td>
             <td><b>Amarelo</b></td>
             <td><b>Vermelho</b></td>
@@ -21,6 +22,7 @@
                 echo "<td>", $indicador->TIPO_IND, "</td>";
                 echo "<td>", HTML::image($staticObj::get_indicador_color_image($indicador)), "</td>";
                 echo "<td>", $indicador->VALOR, "</td>";
+                 echo "<td>", $indicador->DESCRICAO_MET, "</td>";
                 echo "<td>", $indicador->VERDE_INI."-".$indicador->VERDE_LIM, "</td>";
   
                   if(is_numeric($indicador->VERDE_LIM)) {

@@ -3,14 +3,12 @@
   <head>
         <title> SG Mapa Estratégico </title>
   </head>
-
     <?php echo html::style("media/css/bootstrap.css");?>
     <?php echo html::script("media/js/jquery.min.js");?>
     <?php echo html::script("media/js/bootstrap.min.js");?>
     <?php echo html::script("media/js/ajax.js");?>
        
   <body>
-
     <div class="navbar-header">
         <a href="#" class="navbar-brand"> SG Mapa Estratégico |</a>                
     </div>
@@ -37,13 +35,11 @@
                           <li><?=html::anchor('Mapas/exibirMapas','Exibir Mapas')?></li>
                 </ul>
           </li>                    
-        </ul>        
-          
-           <div class="container"> 
+        </ul>          
+        <div class="container"> 
                     <div class="container-fluid">
                       <br><br>  <?=$content?> <br><br>
                     </div>
-          </div>
-
+        </div>
   </body>
 </html>

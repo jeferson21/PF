@@ -42,7 +42,7 @@ class Model_Objetivo extends ORM {
   public static function get_ind_details($id){
       $query = DB::select(array('i.idINDICADOR', 'INDICADORES_idINDICADOR'),
                   'im.VALOR','m.VERDE_INI', 'm.VERDE_LIM','i.TIPO_IND',
-                  'm.AMARELO_LIM','m.VERMELHO_LIM', 'p.NOME_PROJ','p.RESPONSAVEL')
+                  'm.AMARELO_LIM','m.VERMELHO_LIM', 'm.DESCRICAO_MET','p.NOME_PROJ','p.RESPONSAVEL')
           ->from(array('indicadores', 'i'))  
           ->join(array('importacoes','im'))
               ->on('i.idINDICADOR','=', 'im.INDICADORES_idINDICADOR')
@@ -72,8 +72,7 @@ class Model_Objetivo extends ORM {
         return 'FFFF00';
       if($color == 0)
         return 'FF0000';
-  }
-  
+  } 
 
   public static function get_indicador_color($indicador){
       $color = 1;
@@ -85,7 +84,6 @@ class Model_Objetivo extends ORM {
       }
       return $color;
   }
-
 
   public static function get_indicador_color_image($indicador){
     $color = Model_Objetivo::get_indicador_color($indicador);
